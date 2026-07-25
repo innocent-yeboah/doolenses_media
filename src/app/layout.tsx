@@ -65,6 +65,7 @@ const localBusinessJsonLd = {
     addressCountry: "GH",
   },
   url: COMPANY.siteUrl,
+  sameAs: [COMPANY.social.instagram],
   areaServed: { "@type": "Country", name: "Ghana" },
 };
 

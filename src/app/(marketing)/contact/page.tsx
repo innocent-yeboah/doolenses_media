@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { ContactForm } from "@/components/forms/ContactForm";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 import { COMPANY } from "@/lib/constants";
 import { formatPhoneForWhatsApp } from "@/lib/utils";
 
@@ -89,6 +90,21 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
             >
               Chat on WhatsApp
             </a>
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-white">Follow us</h3>
+              <p className="mt-2 text-sm text-brand-slate">
+                Production stills and behind-the-scenes on Instagram.
+              </p>
+              <SocialLinks className="mt-4" />
+              <a
+                href={COMPANY.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-sm text-brand-gold transition hover:underline"
+              >
+                @doolenses
+              </a>
+            </div>
           </div>
 
           <div className="border border-white/10 bg-brand-surface/30 p-6 sm:p-8 lg:col-span-3">

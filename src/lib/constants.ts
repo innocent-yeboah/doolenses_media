@@ -28,7 +28,7 @@ export const COMPANY = {
   },
   social: {
     facebook: "https://facebook.com/doolenses",
-    instagram: "https://instagram.com/doolenses",
+    instagram: "https://www.instagram.com/doolenses/",
     youtube: "https://youtube.com/@doolenses",
     linkedin: "https://linkedin.com/company/doolenses",
   },

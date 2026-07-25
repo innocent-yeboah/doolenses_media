@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { NewsletterForm } from "@/components/forms/NewsletterForm";
+import { SocialLinks } from "@/components/layout/SocialLinks";
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
@@ -15,6 +16,7 @@ export function Footer() {
           <p className="mt-4 text-sm leading-relaxed text-brand-slate">
             {COMPANY.agencyLine}. Premium coverage from Accra, Ghana.
           </p>
+          <SocialLinks className="mt-5" />
         </div>
 
         <div>
