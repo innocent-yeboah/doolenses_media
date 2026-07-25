@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+import { useFormStatus } from "react-dom";
 import { Bell, LogOut, Menu } from "lucide-react";
+import { signOutAdmin } from "@/actions/admin/auth";
 import { initialsFromName } from "@/lib/admin/format";
-import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 
 interface AdminTopbarProps {
@@ -17,6 +16,21 @@ interface AdminTopbarProps {
   className?: string;
 }
 
+function SignOutButton() {
+  const { pending } = useFormStatus();
+
+  return (
+    <button
+      type="submit"
+      disabled={pending}
+      className="inline-flex items-center gap-2 rounded-md border border-white/10 px-3 py-2 text-xs font-semibold text-brand-muted transition hover:border-brand-gold/40 hover:text-brand-gold disabled:opacity-60 sm:text-sm"
+    >
+      <LogOut className="h-4 w-4" aria-hidden />
+      <span className="hidden sm:inline">{pending ? "Signing out…" : "Sign out"}</span>
+    </button>
+  );
+}
+
 export function AdminTopbar({
   title,
   subtitle,
@@ -25,18 +39,6 @@ export function AdminTopbar({
   onMenuClick,
   className,
 }: AdminTopbarProps) {
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-
-  const handleSignOut = () => {
-    startTransition(async () => {
-      const supabase = createClient();
-      await supabase.auth.signOut();
-      router.push("/admin/login");
-      router.refresh();
-    });
-  };
-
   const displayName = userName?.trim() || userEmail || "Staff member";
   const initials = initialsFromName(displayName);
 
@@ -93,15 +95,9 @@ export function AdminTopbar({
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={handleSignOut}
-            disabled={isPending}
-            className="inline-flex items-center gap-2 rounded-md border border-white/10 px-3 py-2 text-xs font-semibold text-brand-muted transition hover:border-brand-gold/40 hover:text-brand-gold disabled:opacity-60 sm:text-sm"
-          >
-            <LogOut className="h-4 w-4" aria-hidden />
-            <span className="hidden sm:inline">{isPending ? "Signing out…" : "Sign out"}</span>
-          </button>
+          <form action={signOutAdmin}>
+            <SignOutButton />
+          </form>
         </div>
       </div>
     </header>
