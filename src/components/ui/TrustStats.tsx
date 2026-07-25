@@ -85,7 +85,7 @@ function StatItem({
       className={cn(
         "text-center",
         variant === "cards" && [
-          "border border-white/15 bg-brand-navy/60",
+          "border border-white/25 bg-transparent",
           compact ? "px-2 py-3 sm:px-3 sm:py-3.5" : "px-3 py-4",
         ]
       )}

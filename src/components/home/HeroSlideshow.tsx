@@ -6,23 +6,35 @@ import { cn } from "@/lib/utils";
 
 const SLIDES = [
   {
-    src: "/hero/slide-01-control-booth.jpg",
-    alt: "Doolenses live production control booth with multiview monitors during an event",
+    src: "/hero/slide-01-music-video-set.jpg",
+    alt: "Doolenses filming a music video set with performers and a camera jib",
   },
   {
-    src: "/hero/slide-02-studio-crane.jpg",
-    alt: "Doolenses camera operator on a jib crane with Aputure lighting on set",
+    src: "/hero/slide-02-studio-cyclorama.jpg",
+    alt: "Doolenses studio shoot with performers on a cyclorama and camera crane",
   },
   {
-    src: "/hero/slide-03-stadium-crew.jpg",
-    alt: "Doolenses television production crew on-site at a stadium in Accra",
+    src: "/hero/slide-03-pink-set-monitor.jpg",
+    alt: "Behind the camera on a stylized pink and green Doolenses production set",
+  },
+  {
+    src: "/hero/slide-04-jib-operator.jpg",
+    alt: "Doolenses crew member operating camera jib counterweight on set",
+  },
+  {
+    src: "/hero/slide-05-stadium-crew.jpg",
+    alt: "Doolenses production crew with equipment trolley at a stadium",
+  },
+  {
+    src: "/hero/slide-06-beetle-crane.jpg",
+    alt: "Doolenses camera crane filming talent on a customized Beetle outdoors",
   },
 ] as const;
 
-const INTERVAL_MS = 6000;
+const INTERVAL_MS = 5000;
 
 /**
- * Full-bleed cinematic hero slideshow using real Doolenses production photography.
+ * Full-bleed cinematic hero slideshow — six production stills, auto crossfade + ken burns.
  */
 export function HeroSlideshow() {
   const [index, setIndex] = useState(0);
@@ -52,8 +64,8 @@ export function HeroSlideshow() {
           <div
             key={slide.src}
             className={cn(
-              "absolute inset-0 transition-opacity duration-1000 ease-in-out",
-              active ? "opacity-100" : "opacity-0"
+              "absolute inset-0 transition-opacity duration-[1200ms] ease-in-out",
+              active ? "z-[1] opacity-100" : "z-0 opacity-0"
             )}
           >
             <Image
@@ -63,7 +75,7 @@ export function HeroSlideshow() {
               priority={i === 0}
               sizes="100vw"
               className={cn(
-                "object-cover object-[center_25%] sm:object-center",
+                "object-cover object-center",
                 active && !reducedMotion && "animate-hero-kenburns"
               )}
             />
@@ -71,8 +83,8 @@ export function HeroSlideshow() {
         );
       })}
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-brand-navy/50 via-brand-navy/20 to-brand-navy/85" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-navy/40 via-transparent to-transparent sm:from-brand-navy/55" />
+      <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-brand-navy/45 via-brand-navy/15 to-brand-navy/80" />
+      <div className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-r from-brand-navy/35 via-transparent to-transparent sm:from-brand-navy/50" />
     </div>
   );
 }
