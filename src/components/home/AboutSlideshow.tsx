@@ -45,7 +45,7 @@ export function AboutSlideshow({ className }: AboutSlideshowProps) {
   return (
     <div
       className={cn(
-        "relative aspect-[4/3] w-full overflow-hidden border border-white/10 bg-brand-navy sm:aspect-[5/4] lg:aspect-square",
+        "relative aspect-square w-full overflow-hidden border border-white/10 bg-brand-navy",
         className
       )}
     >
@@ -66,7 +66,7 @@ export function AboutSlideshow({ className }: AboutSlideshowProps) {
               fill
               sizes="(max-width:1024px) 100vw, 50vw"
               priority={i === 0}
-              className="object-cover object-center"
+              className="object-contain object-center sm:object-cover"
             />
           </div>
         );

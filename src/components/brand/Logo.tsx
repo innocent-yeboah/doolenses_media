@@ -40,8 +40,8 @@ export function Logo({
       className={cn(
         "h-auto w-auto max-w-full object-contain object-left",
         size === "hero" && "w-full max-w-[min(100%,24rem)] md:max-w-[26rem]",
-        size === "md" && "max-h-14",
-        size === "sm" && "max-h-11",
+        size === "md" && "h-10 w-auto max-h-10 sm:h-auto sm:max-h-14",
+        size === "sm" && "h-9 w-auto max-h-9 sm:h-auto sm:max-h-11",
         className
       )}
     />
