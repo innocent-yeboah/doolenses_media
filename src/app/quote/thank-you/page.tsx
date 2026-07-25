@@ -43,7 +43,7 @@ export default function QuoteThankYouPage() {
         <p className="mt-8 text-sm text-brand-slate">
           Prefer to call?{" "}
           <Link href={`tel:${COMPANY.phone}`} className="text-brand-gold hover:underline">
-            {COMPANY.phone}
+            {COMPANY.phoneDisplay}
           </Link>
         </p>
       </div>

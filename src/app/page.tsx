@@ -3,7 +3,6 @@ import { HomeHero } from "@/components/home/HomeHero";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { WhyChoose } from "@/components/home/WhyChoose";
-import { GalleryPreview } from "@/components/home/GalleryPreview";
 import { Testimonials } from "@/components/home/Testimonials";
 import { HomeCTA } from "@/components/home/HomeCTA";
 import { COMPANY } from "@/lib/constants";
@@ -21,7 +20,6 @@ export default function HomePage() {
       <AboutPreview />
       <ServicesOverview />
       <WhyChoose />
-      <GalleryPreview />
       <Testimonials />
       <HomeCTA />
     </>

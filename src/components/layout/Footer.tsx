@@ -13,7 +13,7 @@ export function Footer() {
         <div>
           <Logo variant="light" size="md" />
           <p className="mt-4 text-sm leading-relaxed text-brand-slate">
-            {COMPANY.subheadline}. Premium television production and advertising from Accra, Ghana.
+            {COMPANY.agencyLine}. Premium coverage from Accra, Ghana.
           </p>
         </div>
 
@@ -43,9 +43,15 @@ export function Footer() {
               <span>{COMPANY.address}</span>
             </li>
             <li>
+              <a href={`tel:${COMPANY.officePhone}`} className="flex items-center gap-3 hover:text-brand-gold">
+                <Phone className="h-4 w-4 shrink-0 text-brand-gold" aria-hidden />
+                Office {COMPANY.officePhoneDisplay}
+              </a>
+            </li>
+            <li>
               <a href={`tel:${COMPANY.phone}`} className="flex items-center gap-3 hover:text-brand-gold">
                 <Phone className="h-4 w-4 shrink-0 text-brand-gold" aria-hidden />
-                {COMPANY.phone}
+                Mobile {COMPANY.phoneDisplay}
               </a>
             </li>
             <li>
@@ -71,7 +77,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-brand-slate sm:flex-row sm:px-6 lg:px-8">
           <p>
-            © {year} {COMPANY.name}. All rights reserved.
+            © {year} {COMPANY.legalName}. All rights reserved.
           </p>
           <p>{COMPANY.tagline}</p>
         </div>

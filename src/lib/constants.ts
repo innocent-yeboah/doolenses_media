@@ -1,17 +1,26 @@
 export const COMPANY = {
   name: "Doolenses",
-  tagline: "Creative Work for Creative People",
+  legalName: "Doolenses Media",
+  tagline: "Creative Work, For Creative People",
   subheadline: "Television Production and Advertising Excellence",
+  agencyLine: "Television Production, and Advertising Agency",
   heroHeadline: "Capturing Moments, Creating Memories",
   heroTrust:
     "Experience exceptional video coverage and media production tailored for your events in Accra, Ghana.",
   aboutBlurb:
     "At Doolenses, we are passionate about capturing life's most important moments through high-quality video production and media coverage tailored to your needs.",
+  /** Mobile — primary WhatsApp / click-to-call */
   phone: process.env.COMPANY_PHONE || "0556195581",
-  email: process.env.COMPANY_EMAIL || "info@doolenses.com",
-  address: "Aygaherbal off Pokuase Road, Accra, Ghana",
+  phoneDisplay: "(+233) 055 619 5581",
+  /** Office landline */
+  officePhone: process.env.COMPANY_OFFICE_PHONE || "0303963158",
+  officePhoneDisplay: "(+233) 030 396 3158",
+  email: process.env.COMPANY_EMAIL || "doolenses@gmail.com",
+  address: "House No. 13, Mahogany Close, Near Mary-Lucy Hospital, Awoshie, Accra, Ghana",
+  addressShort: "House No. 13, Mahogany Close, Awoshie, Accra",
   city: "Accra",
   country: "Ghana",
+  mapsQuery: "House No. 13 Mahogany Close Near Mary-Lucy Hospital Awoshie Accra Ghana",
   hours: {
     weekdays: "Monday – Friday: 8:00 AM – 6:00 PM",
     saturday: "Saturday: 9:00 AM – 3:00 PM",

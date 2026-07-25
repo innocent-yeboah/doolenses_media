@@ -43,6 +43,12 @@ export function ServicesOverview() {
               <p className="mt-2 text-sm leading-relaxed text-white/75 sm:text-base">
                 {service.shortDescription}
               </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-brand-gold transition group-hover:gap-3">
+                Read more
+                <span aria-hidden className="text-base leading-none">
+                  →
+                </span>
+              </span>
             </Link>
           ))}
         </div>

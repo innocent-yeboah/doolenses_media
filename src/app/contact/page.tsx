@@ -46,9 +46,21 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                 <span>{COMPANY.address}</span>
               </li>
               <li>
+                <a href={`tel:${COMPANY.officePhone}`} className="flex gap-3 hover:text-brand-gold">
+                  <Phone className="h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
+                  <span>
+                    <span className="block text-xs uppercase tracking-wider text-brand-slate">Office</span>
+                    {COMPANY.officePhoneDisplay}
+                  </span>
+                </a>
+              </li>
+              <li>
                 <a href={`tel:${COMPANY.phone}`} className="flex gap-3 hover:text-brand-gold">
                   <Phone className="h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
-                  {COMPANY.phone}
+                  <span>
+                    <span className="block text-xs uppercase tracking-wider text-brand-slate">Mobile</span>
+                    {COMPANY.phoneDisplay}
+                  </span>
                 </a>
               </li>
               <li>
@@ -94,8 +106,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           <h2 className="mb-4 font-display text-2xl font-bold text-white">Find us</h2>
           <div className="overflow-hidden border border-white/10">
             <iframe
-              title="Doolenses location — Aygaherbal off Pokuase Road, Accra"
-              src="https://www.google.com/maps?q=Aygaherbal+off+Pokuase+Road+Accra+Ghana&output=embed"
+              title={`Doolenses location — ${COMPANY.addressShort}`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(COMPANY.mapsQuery)}&output=embed`}
               className="h-[360px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

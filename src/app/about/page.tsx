@@ -3,8 +3,9 @@ import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
-import { COMPANY, WHY_CHOOSE, TRUST_STATS } from "@/lib/constants";
+import { COMPANY, WHY_CHOOSE } from "@/lib/constants";
 import { TEAM } from "@/lib/data";
+import { TrustStats } from "@/components/ui/TrustStats";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -28,8 +29,8 @@ export default function AboutPage() {
       <PageHero
         title="About Us"
         description="Discover the heart of Doolenses — creative work for creative people."
-        imageUrl="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=2000&q=80"
-        imageAlt="Cinematographer on a professional set"
+        imageUrl="/images/about/about-slide-02-videography.jpg"
+        imageAlt="Doolenses — The videography people"
       />
 
       <section className="px-4 py-20 sm:px-6 lg:px-8">
@@ -53,30 +54,22 @@ export default function AboutPage() {
               <p>Our studio ethos is simple: {COMPANY.tagline}.</p>
             </div>
           </div>
-          <div className="relative flex aspect-square items-center justify-center border border-white/10 bg-white p-10">
+          <div className="relative aspect-[4/3] w-full overflow-hidden border border-white/10 bg-brand-navy lg:aspect-square">
             <Image
-              src="/brand/doolenses-logo.png"
-              alt="Doolenses logo"
-              width={420}
-              height={130}
-              className="h-auto w-full max-w-sm object-contain"
+              src="/images/about/about-team.jpg"
+              alt="The Doolenses production team in studio"
+              fill
+              sizes="(max-width:1024px) 100vw, 50vw"
+              className="object-cover object-center"
+              priority
             />
           </div>
         </div>
       </section>
 
       <section className="border-y border-white/10 bg-brand-surface/40 px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 md:grid-cols-4">
-          {TRUST_STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="font-display text-3xl font-bold text-brand-gold">
-                {"display" in stat && stat.display
-                  ? stat.display
-                  : `${stat.numeric ?? ""}${stat.suffix}`}
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-[0.16em] text-brand-slate">{stat.label}</p>
-            </div>
-          ))}
+        <div className="mx-auto max-w-7xl">
+          <TrustStats variant="banner" />
         </div>
       </section>
 
@@ -104,7 +97,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="The crew"
             title="Meet the Team"
-            description="Placeholder profiles — replace with your real production leaders and portraits."
+            description="The people behind the lens — production leaders who bring every shoot to life."
           />
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((member) => (

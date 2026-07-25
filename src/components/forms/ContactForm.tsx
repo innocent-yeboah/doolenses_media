@@ -53,7 +53,7 @@ export function ContactForm({
           <input {...register("email")} type="email" className="field-input" placeholder="you@company.com" />
         </Field>
         <Field label="Phone" error={errors.phone?.message}>
-          <input {...register("phone")} type="tel" className="field-input" placeholder="0556195581" />
+          <input {...register("phone")} type="tel" className="field-input" placeholder="055 619 5581" />
         </Field>
         <Field label="Event type" error={errors.eventType?.message}>
           <select {...register("eventType")} className="field-input">

@@ -263,29 +263,25 @@ export const TEAM: TeamMember[] = [
     name: "Creative Director",
     role: "Lead Director",
     bio: "Shapes every production with a cinematic eye and client-first discipline.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80",
+    imageUrl: "/images/team/creative-director.jpg",
   },
   {
     name: "Production Manager",
     role: "Operations Lead",
     bio: "Coordinates crews, gear, and timelines so every shoot runs with precision.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80",
+    imageUrl: "/images/team/production-manager.jpg",
   },
   {
     name: "Lead Camera Operator",
     role: "Cinematography",
     bio: "Captures decisive moments with broadcast-ready framing and movement.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80",
+    imageUrl: "/images/team/lead-camera-operator.jpg",
   },
   {
     name: "Post-Production Editor",
     role: "Editing & Colour",
     bio: "Transforms raw footage into polished films with narrative clarity.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80",
+    imageUrl: "/images/team/post-production-editor.jpg",
   },
 ];
 
