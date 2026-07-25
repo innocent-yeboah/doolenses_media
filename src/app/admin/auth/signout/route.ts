@@ -6,8 +6,8 @@ import { NextResponse, type NextRequest } from "next/server";
  * A plain form POST is more reliable than a Server Action for sign-out.
  */
 export async function POST(request: NextRequest) {
-  const loginUrl = new URL("/admin/login", request.url);
-  const response = NextResponse.redirect(loginUrl, { status: 303 });
+  const homeUrl = new URL("/", request.url);
+  const response = NextResponse.redirect(homeUrl, { status: 303 });
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
