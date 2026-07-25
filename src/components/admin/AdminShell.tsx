@@ -33,7 +33,7 @@ export function AdminShell({ children, profile, userEmail }: AdminShellProps) {
         }
       >
         <AdminTopbar
-          title="Operations Console"
+          title="Admin"
           subtitle={profile.role.charAt(0).toUpperCase() + profile.role.slice(1)}
           userName={profile.full_name}
           userEmail={userEmail}

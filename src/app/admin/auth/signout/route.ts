@@ -29,9 +29,9 @@ export async function POST(request: NextRequest) {
     await supabase.auth.signOut({ scope: "local" });
   }
 
-  // Ensure any remaining auth cookies are expired on the redirect.
+  // Expire every Supabase auth-related cookie on the redirect response.
   for (const { name } of request.cookies.getAll()) {
-    if (name.startsWith("sb-") && name.includes("auth-token")) {
+    if (name.startsWith("sb-")) {
       response.cookies.set(name, "", {
         path: "/",
         maxAge: 0,
