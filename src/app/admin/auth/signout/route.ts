@@ -7,7 +7,7 @@ import { NextResponse, type NextRequest } from "next/server";
  */
 export async function POST(request: NextRequest) {
   const loginUrl = new URL("/admin/login", request.url);
-  let response = NextResponse.redirect(loginUrl, { status: 303 });
+  const response = NextResponse.redirect(loginUrl, { status: 303 });
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
