@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { COMPANY } from "@/lib/constants";
 import "./globals.css";
 
-const display = Playfair_Display({
+const display = Montserrat({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 const sans = Inter({
@@ -25,20 +26,16 @@ export const metadata: Metadata = {
     template: `%s | ${COMPANY.name}`,
   },
   description:
-    "Doolenses is a premium television production and advertising company in Accra, Ghana. Creative work for creative peoples — weddings, conferences, concerts, campaigns, and more.",
+    "Doolenses is a premium television production and advertising company in Accra, Ghana. Capturing moments, creating memories — creative work for creative people.",
   keywords: [
     "television production Accra",
     "event videography Ghana",
     "wedding films Accra",
-    "conference production Ghana",
     "Doolenses",
-    "advertising production Accra",
+    "media production Accra",
   ],
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/brand/icon-48.png", type: "image/png", sizes: "48x48" },
-    ],
+    icon: [{ url: "/favicon.ico" }, { url: "/brand/icon-48.png", type: "image/png", sizes: "48x48" }],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
@@ -46,19 +43,11 @@ export const metadata: Metadata = {
     locale: "en_GH",
     url: COMPANY.siteUrl,
     siteName: COMPANY.name,
-    title: `${COMPANY.name} | ${COMPANY.subheadline}`,
+    title: `${COMPANY.name} | ${COMPANY.heroHeadline}`,
     description: COMPANY.tagline,
     images: [{ url: "/brand/doolenses-logo-on-white.png", alt: "Doolenses logo" }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: COMPANY.name,
-    description: COMPANY.subheadline,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 const localBusinessJsonLd = {
@@ -76,18 +65,10 @@ const localBusinessJsonLd = {
     addressCountry: "GH",
   },
   url: COMPANY.siteUrl,
-  areaServed: {
-    "@type": "Country",
-    name: "Ghana",
-  },
-  priceRange: "$$",
+  areaServed: { "@type": "Country", name: "Ghana" },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body className="min-h-screen bg-brand-navy font-sans text-brand-muted antialiased">

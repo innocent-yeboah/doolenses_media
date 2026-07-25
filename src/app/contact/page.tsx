@@ -8,13 +8,11 @@ import { formatPhoneForWhatsApp } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Doolenses in Accra for professional television production and advertising. Call, WhatsApp, or send a message about your event.",
+    "Contact Doolenses in Accra for professional television production and advertising. Call, WhatsApp, or send a message.",
   alternates: { canonical: "/contact" },
 };
 
-type ContactPageProps = {
-  searchParams?: { project?: string };
-};
+type ContactPageProps = { searchParams?: { project?: string } };
 
 export default function ContactPage({ searchParams }: ContactPageProps) {
   const project = searchParams?.project;
@@ -29,47 +27,37 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
       <PageHero
         title="Contact Us"
         description="Tell us about your event — we'll respond within one business day."
-        // CLIENT: Replace with Accra / studio location imagery
         imageUrl="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=2000&q=80"
         imageAlt="Production planning workspace"
       />
 
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-2 space-y-8">
+          <div className="space-y-8 lg:col-span-2">
             <div>
               <h2 className="font-display text-2xl font-bold text-white">Get in touch</h2>
               <p className="mt-3 text-sm leading-relaxed text-brand-slate">
-                Whether you need a full production crew or a focused coverage package, our Accra
-                team is ready to help.
+                Whether you need a full production crew or a focused coverage package, our Accra team is ready.
               </p>
             </div>
-
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
                 <span>{COMPANY.address}</span>
               </li>
               <li>
-                <a
-                  href={`tel:${COMPANY.phone}`}
-                  className="flex gap-3 transition hover:text-brand-gold"
-                >
+                <a href={`tel:${COMPANY.phone}`} className="flex gap-3 hover:text-brand-gold">
                   <Phone className="h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
                   {COMPANY.phone}
                 </a>
               </li>
               <li>
-                <a
-                  href={`mailto:${COMPANY.email}`}
-                  className="flex gap-3 transition hover:text-brand-gold"
-                >
+                <a href={`mailto:${COMPANY.email}`} className="flex gap-3 hover:text-brand-gold">
                   <Mail className="h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
                   {COMPANY.email}
                 </a>
               </li>
             </ul>
-
             <div>
               <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-white">
                 <Clock className="h-4 w-4 text-brand-gold" aria-hidden />
@@ -81,7 +69,6 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                 <li>{COMPANY.hours.sunday}</li>
               </ul>
             </div>
-
             <a
               href={whatsapp}
               target="_blank"
@@ -94,11 +81,7 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
 
           <div className="border border-white/10 bg-brand-surface/30 p-6 sm:p-8 lg:col-span-3">
             <h2 className="font-display text-2xl font-bold text-white">Send a message</h2>
-            {project ? (
-              <p className="mt-2 text-sm text-brand-gold">
-                Inquiring about: {project}
-              </p>
-            ) : null}
+            {project ? <p className="mt-2 text-sm text-brand-gold">Inquiring about: {project}</p> : null}
             <div className="mt-6">
               <ContactForm />
             </div>
@@ -111,8 +94,8 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
           <h2 className="mb-4 font-display text-2xl font-bold text-white">Find us</h2>
           <div className="overflow-hidden border border-white/10">
             <iframe
-              title="Doolenses location — Pokuase Road, Accra"
-              src="https://www.google.com/maps?q=Pokuase+Road+Accra+Ghana&output=embed"
+              title="Doolenses location — Aygaherbal off Pokuase Road, Accra"
+              src="https://www.google.com/maps?q=Aygaherbal+off+Pokuase+Road+Accra+Ghana&output=embed"
               className="h-[360px] w-full"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

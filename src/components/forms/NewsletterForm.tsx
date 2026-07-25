@@ -49,9 +49,7 @@ export function NewsletterForm() {
       <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
         <input {...register("website")} tabIndex={-1} autoComplete="off" />
       </div>
-      {errors.email ? (
-        <p className="text-xs text-red-400">{errors.email.message}</p>
-      ) : null}
+      {errors.email ? <p className="text-xs text-red-400">{errors.email.message}</p> : null}
       {message ? <p className="text-xs text-brand-gold">{message}</p> : null}
     </form>
   );

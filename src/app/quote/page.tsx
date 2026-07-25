@@ -15,11 +15,9 @@ export default function QuotePage() {
       <PageHero
         title="Get a Free Quote"
         description="Four quick steps — we'll follow up with a tailored production proposal."
-        // CLIENT: Replace with consultation / planning imagery
         imageUrl="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=2000&q=80"
         imageAlt="Creative production consultation"
       />
-
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl border border-white/10 bg-brand-surface/30 p-6 sm:p-10">
           <QuoteForm />

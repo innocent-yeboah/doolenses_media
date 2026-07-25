@@ -1,7 +1,12 @@
 export const COMPANY = {
   name: "Doolenses",
-  tagline: "Creative Work for Creative Peoples",
+  tagline: "Creative Work for Creative People",
   subheadline: "Television Production and Advertising Excellence",
+  heroHeadline: "Capturing Moments, Creating Memories",
+  heroTrust:
+    "Experience exceptional video coverage and media production tailored for your events in Accra, Ghana.",
+  aboutBlurb:
+    "At Doolenses, we are passionate about capturing life's most important moments through high-quality video production and media coverage tailored to your needs.",
   phone: process.env.COMPANY_PHONE || "0556195581",
   email: process.env.COMPANY_EMAIL || "info@doolenses.com",
   address: "Aygaherbal off Pokuase Road, Accra, Ghana",
@@ -26,16 +31,16 @@ export const COMPANY = {
 export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/portfolio", label: "Gallery" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export const TRUST_STATS = [
-  { label: "Years of Experience", value: "10+" },
-  { label: "Events Covered", value: "500+" },
-  { label: "Professional Production Team", value: "Expert" },
-  { label: "Nationwide Coverage", value: "Ghana" },
+  { value: "10+", label: "Years of Experience" },
+  { value: "500+", label: "Events Covered" },
+  { value: "100%", label: "Client Dedication" },
+  { value: "Nationwide", label: "Coverage Across Ghana" },
 ] as const;
 
 export const EVENT_TYPES = [
@@ -75,22 +80,22 @@ export const WHY_CHOOSE = [
   {
     title: "Professional Production Team",
     description:
-      "Seasoned directors, camera operators, and editors who deliver broadcast-quality storytelling for every event.",
+      "Seasoned directors, camera operators, and editors delivering broadcast-quality storytelling.",
   },
   {
     title: "State-of-the-Art Equipment",
     description:
-      "Cinema cameras, pro audio, lighting, and streaming kits calibrated for Accra venues and outdoor productions.",
+      "Cinema cameras, pro audio, lighting, and streaming kits ready for Accra venues and outdoor sets.",
   },
   {
     title: "Creative Excellence",
     description:
-      "We craft cinematic narratives that elevate brands, celebrations, and campaigns — creative work for creative peoples.",
+      "Cinematic narratives that elevate brands, celebrations, and campaigns — creative work for creative people.",
   },
   {
     title: "Reliable Delivery",
     description:
-      "Clear timelines, disciplined crews, and polished deliverables you can trust from first call to final cut.",
+      "Clear timelines, disciplined crews, and polished deliverables from first call to final cut.",
   },
 ] as const;
 
@@ -99,15 +104,15 @@ export const TESTIMONIALS = [
     name: "Ama Serwaa",
     role: "Bride, Accra Wedding",
     quote:
-      "Doolenses captured our wedding with such elegance. Every frame felt cinematic — our families still watch the film months later.",
+      "Doolenses captured our wedding with elegance. Every frame felt cinematic — our families still watch the film months later.",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
   },
   {
     name: "Kwame Mensah",
-    role: "Conference Director, FinTech Summit",
+    role: "Conference Director",
     quote:
-      "From multi-camera coverage to live streaming, the team executed flawlessly. Our sponsors were impressed with the production quality.",
+      "From multi-camera coverage to live streaming, the team executed flawlessly. Sponsors were impressed with the production quality.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
   },
@@ -115,7 +120,7 @@ export const TESTIMONIALS = [
     name: "Pastor Emmanuel Osei",
     role: "Crusade Organizer",
     quote:
-      "They handled a large outdoor crusade with professionalism and heart. Sound, lighting, and cameras were perfectly coordinated.",
+      "They handled a large outdoor crusade with professionalism. Sound, lighting, and cameras were perfectly coordinated.",
     image:
       "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
   },

@@ -29,9 +29,7 @@ type CommonProps = {
 };
 
 type ButtonAsButton = CommonProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    href?: undefined;
-  };
+  React.ButtonHTMLAttributes<HTMLButtonElement> & { href?: undefined };
 
 type ButtonAsLink = CommonProps & {
   href: string;
@@ -55,10 +53,15 @@ export function Button({
 
   if ("href" in props && props.href) {
     const { href, target, rel } = props;
-    const external = href.startsWith("http") || href.startsWith("https://wa.me");
+    const external = href.startsWith("http");
     if (external) {
       return (
-        <a href={href} target={target ?? "_blank"} rel={rel ?? "noopener noreferrer"} className={classes}>
+        <a
+          href={href}
+          target={target ?? "_blank"}
+          rel={rel ?? "noopener noreferrer"}
+          className={classes}
+        >
           {children}
         </a>
       );
@@ -70,9 +73,8 @@ export function Button({
     );
   }
 
-  const buttonProps = props as ButtonAsButton;
   return (
-    <button className={classes} {...buttonProps}>
+    <button className={classes} {...(props as ButtonAsButton)}>
       {children}
     </button>
   );

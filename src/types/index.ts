@@ -7,31 +7,13 @@ export type LeadSource =
   | "portfolio_inquire"
   | "consultation";
 
-export interface Lead {
-  id: string;
-  created_at: string;
-  name: string;
-  email: string;
-  phone: string;
-  event_type: string | null;
-  event_date: string | null;
-  event_location: string | null;
-  budget_range: string | null;
-  message: string | null;
-  source: LeadSource | string | null;
-  status: LeadStatus | string;
-  notes: string | null;
-  contacted_at: string | null;
-  production_needs?: string[] | null;
-  event_duration?: string | null;
-}
-
 export interface Service {
   id: string;
   name: string;
   slug: string;
-  description: string;
+  shortLabel: string;
   shortDescription: string;
+  description: string;
   features: string[];
   imageUrl: string;
   icon: string;

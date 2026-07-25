@@ -6,11 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { submitQuoteForm } from "@/actions/leads";
 import { Button } from "@/components/ui/Button";
-import {
-  BUDGET_RANGES,
-  EVENT_TYPES,
-  PRODUCTION_NEEDS,
-} from "@/lib/constants";
+import { BUDGET_RANGES, EVENT_TYPES, PRODUCTION_NEEDS } from "@/lib/constants";
 import {
   quoteFormSchema,
   quoteStep1Schema,
@@ -21,12 +17,7 @@ import {
 } from "@/lib/validations";
 import { cn } from "@/lib/utils";
 
-const STEPS = [
-  "Contact",
-  "Event details",
-  "Production needs",
-  "Budget",
-] as const;
+const STEPS = ["Contact", "Event details", "Production needs", "Budget"] as const;
 
 export function QuoteForm() {
   const router = useRouter();
@@ -65,20 +56,9 @@ export function QuoteForm() {
 
   const next = async () => {
     setError(null);
-    const schemas = [
-      quoteStep1Schema,
-      quoteStep2Schema,
-      quoteStep3Schema,
-      quoteStep4Schema,
-    ];
+    const schemas = [quoteStep1Schema, quoteStep2Schema, quoteStep3Schema, quoteStep4Schema];
     const fields = Object.keys(schemas[step].shape) as (keyof QuoteFormValues)[];
-    const valid = await trigger(fields);
-    if (valid) setStep((s) => Math.min(s + 1, STEPS.length - 1));
-  };
-
-  const back = () => {
-    setError(null);
-    setStep((s) => Math.max(s - 1, 0));
+    if (await trigger(fields)) setStep((s) => Math.min(s + 1, STEPS.length - 1));
   };
 
   const onSubmit = (values: QuoteFormValues) => {
@@ -95,14 +75,15 @@ export function QuoteForm() {
 
   const toggleNeed = (id: string) => {
     const current = productionNeeds || [];
-    const nextNeeds = current.includes(id)
-      ? current.filter((n) => n !== id)
-      : [...current, id];
-    setValue("productionNeeds", nextNeeds, { shouldValidate: true });
+    setValue(
+      "productionNeeds",
+      current.includes(id) ? current.filter((n) => n !== id) : [...current, id],
+      { shouldValidate: true }
+    );
   };
 
   return (
-    <div className="w-full">
+    <div>
       <ol className="mb-10 flex flex-wrap gap-2" aria-label="Quote form progress">
         {STEPS.map((label, index) => (
           <li
@@ -126,23 +107,13 @@ export function QuoteForm() {
         {step === 0 ? (
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Full name" error={errors.name?.message} className="sm:col-span-2">
-              <input {...register("name")} className="field-input" placeholder="Your name" />
+              <input {...register("name")} className="field-input" />
             </Field>
             <Field label="Email" error={errors.email?.message}>
-              <input
-                {...register("email")}
-                type="email"
-                className="field-input"
-                placeholder="you@company.com"
-              />
+              <input {...register("email")} type="email" className="field-input" />
             </Field>
             <Field label="Phone" error={errors.phone?.message}>
-              <input
-                {...register("phone")}
-                type="tel"
-                className="field-input"
-                placeholder="0556195581"
-              />
+              <input {...register("phone")} type="tel" className="field-input" />
             </Field>
           </div>
         ) : null}
@@ -151,10 +122,8 @@ export function QuoteForm() {
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Event type" error={errors.eventType?.message}>
               <select {...register("eventType")} className="field-input">
-                {EVENT_TYPES.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
+                {EVENT_TYPES.map((t) => (
+                  <option key={t}>{t}</option>
                 ))}
               </select>
             </Field>
@@ -162,11 +131,7 @@ export function QuoteForm() {
               <input {...register("eventDate")} type="date" className="field-input" />
             </Field>
             <Field label="Location" error={errors.eventLocation?.message}>
-              <input
-                {...register("eventLocation")}
-                className="field-input"
-                placeholder="Venue / city"
-              />
+              <input {...register("eventLocation")} className="field-input" placeholder="Venue / city" />
             </Field>
             <Field label="Duration" error={errors.eventDuration?.message}>
               <select {...register("eventDuration")} className="field-input">
@@ -182,9 +147,7 @@ export function QuoteForm() {
         {step === 2 ? (
           <div className="space-y-4">
             <fieldset>
-              <legend className="mb-3 text-sm font-medium text-brand-muted">
-                What do you need?
-              </legend>
+              <legend className="mb-3 text-sm font-medium text-brand-muted">What do you need?</legend>
               <div className="grid gap-3 sm:grid-cols-2">
                 {PRODUCTION_NEEDS.map((need) => {
                   const checked = productionNeeds?.includes(need.id);
@@ -193,13 +156,13 @@ export function QuoteForm() {
                       key={need.id}
                       type="button"
                       onClick={() => toggleNeed(need.id)}
+                      aria-pressed={checked}
                       className={cn(
                         "border px-4 py-3 text-left text-sm transition",
                         checked
                           ? "border-brand-gold bg-brand-gold/10 text-brand-gold"
                           : "border-white/15 text-brand-muted hover:border-brand-gold/50"
                       )}
-                      aria-pressed={checked}
                     >
                       {need.label}
                     </button>
@@ -211,12 +174,7 @@ export function QuoteForm() {
               ) : null}
             </fieldset>
             <Field label="Additional notes (optional)" error={errors.message?.message}>
-              <textarea
-                {...register("message")}
-                rows={4}
-                className="field-input resize-y"
-                placeholder="Share creative direction, brand guidelines, or must-have shots..."
-              />
+              <textarea {...register("message")} rows={4} className="field-input resize-y" />
             </Field>
           </div>
         ) : null}
@@ -225,16 +183,13 @@ export function QuoteForm() {
           <div className="space-y-4">
             <Field label="Budget range" error={errors.budgetRange?.message}>
               <select {...register("budgetRange")} className="field-input">
-                {BUDGET_RANGES.map((range) => (
-                  <option key={range} value={range}>
-                    {range}
-                  </option>
+                {BUDGET_RANGES.map((r) => (
+                  <option key={r}>{r}</option>
                 ))}
               </select>
             </Field>
             <p className="text-sm text-brand-slate">
-              Budgets help us recommend the right crew and package. We&apos;ll confirm exact
-              pricing after a short consultation.
+              Budgets help us recommend the right crew and package. Exact pricing follows a short consultation.
             </p>
             <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
               <input {...register("website")} tabIndex={-1} autoComplete="off" />
@@ -248,7 +203,7 @@ export function QuoteForm() {
           <Button
             type="button"
             variant="ghost"
-            onClick={back}
+            onClick={() => setStep((s) => Math.max(s - 1, 0))}
             disabled={step === 0 || pending}
             className={step === 0 ? "invisible" : ""}
           >

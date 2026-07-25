@@ -5,10 +5,7 @@ export function createClient() {
   const cookieStore = cookies();
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-  if (!url || !key) {
-    throw new Error("Missing Supabase environment variables");
-  }
+  if (!url || !key) throw new Error("Missing Supabase environment variables");
 
   return createServerClient(url, key, {
     cookies: {
@@ -21,7 +18,7 @@ export function createClient() {
             cookieStore.set(name, value, options)
           );
         } catch {
-          // Called from a Server Component — safe to ignore when middleware refreshes sessions.
+          // Server Component context
         }
       },
     },

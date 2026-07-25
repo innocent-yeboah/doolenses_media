@@ -50,7 +50,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden lg:block">
           <Button href="/quote" size="sm">
             Get a Free Quote
           </Button>
@@ -58,7 +58,7 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-white lg:hidden"
+          className="inline-flex p-2 text-white lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -67,12 +67,7 @@ export function Header() {
         </button>
       </div>
 
-      <div
-        className={cn(
-          "border-t border-white/10 bg-brand-navy lg:hidden",
-          open ? "block" : "hidden"
-        )}
-      >
+      <div className={cn("border-t border-white/10 bg-brand-navy lg:hidden", open ? "block" : "hidden")}>
         <nav className="flex flex-col gap-1 px-4 py-4" aria-label="Mobile">
           {NAV_LINKS.map((link) => (
             <Link

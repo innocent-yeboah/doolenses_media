@@ -21,22 +21,20 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "serif"],
+        display: ["var(--font-display)", "sans-serif"],
         sans: ["var(--font-sans)", "sans-serif"],
       },
       backgroundImage: {
-        "hero-gradient":
-          "linear-gradient(180deg, rgba(10,37,64,0.55) 0%, rgba(10,37,64,0.85) 55%, rgba(10,37,64,0.97) 100%)",
         "section-glow":
           "radial-gradient(ellipse at top, rgba(212,175,55,0.08) 0%, transparent 55%)",
       },
       boxShadow: {
-        gold: "0 0 0 1px rgba(212,175,55,0.35)",
         elevate: "0 20px 50px rgba(0,0,0,0.35)",
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease-out forwards",
         "fade-in": "fadeIn 0.6s ease-out forwards",
+        "hero-kenburns": "heroKenburns 7s ease-out forwards",
       },
       keyframes: {
         fadeUp: {
@@ -46,6 +44,10 @@ const config: Config = {
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
+        },
+        heroKenburns: {
+          "0%": { transform: "scale(1)" },
+          "100%": { transform: "scale(1.08)" },
         },
       },
     },

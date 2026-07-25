@@ -11,9 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function QuoteThankYouPage() {
-  const whatsapp = `https://wa.me/${formatPhoneForWhatsApp(COMPANY.phone)}?text=${encodeURIComponent(
-    COMPANY.whatsappMessage
-  )}`;
+  const whatsapp = `https://wa.me/${formatPhoneForWhatsApp(COMPANY.phone)}?text=${encodeURIComponent(COMPANY.whatsappMessage)}`;
 
   return (
     <section className="flex min-h-[80vh] items-center px-4 py-28 sm:px-6 lg:px-8">
@@ -27,24 +25,19 @@ export default function QuoteThankYouPage() {
         </p>
         <ol className="mx-auto mt-8 max-w-md space-y-3 text-left text-sm text-brand-muted">
           <li className="border border-white/10 bg-brand-surface/40 px-4 py-3">
-            <span className="font-semibold text-brand-gold">1.</span> We review your event details
-            and production needs.
+            <span className="font-semibold text-brand-gold">1.</span> We review your event details and production needs.
           </li>
           <li className="border border-white/10 bg-brand-surface/40 px-4 py-3">
-            <span className="font-semibold text-brand-gold">2.</span> A producer contacts you within
-            one business day.
+            <span className="font-semibold text-brand-gold">2.</span> A producer contacts you within one business day.
           </li>
           <li className="border border-white/10 bg-brand-surface/40 px-4 py-3">
-            <span className="font-semibold text-brand-gold">3.</span> You receive a tailored package
-            and timeline proposal.
+            <span className="font-semibold text-brand-gold">3.</span> You receive a tailored package and timeline proposal.
           </li>
         </ol>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Button href={whatsapp} target="_blank" rel="noopener noreferrer">
-            Message us on WhatsApp
-          </Button>
+          <Button href={whatsapp}>Message us on WhatsApp</Button>
           <Button href="/portfolio" variant="outline">
-            Browse Portfolio
+            Browse Gallery
           </Button>
         </div>
         <p className="mt-8 text-sm text-brand-slate">

@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { getPortfolioCategories, PORTFOLIO } from "@/lib/data";
@@ -11,19 +10,14 @@ import { cn } from "@/lib/utils";
 export function PortfolioGallery() {
   const categories = getPortfolioCategories();
   const [active, setActive] = useState("All");
-
-  const items = useMemo(() => {
-    if (active === "All") return PORTFOLIO;
-    return PORTFOLIO.filter((item) => item.category === active);
-  }, [active]);
+  const items = useMemo(
+    () => (active === "All" ? PORTFOLIO : PORTFOLIO.filter((i) => i.category === active)),
+    [active]
+  );
 
   return (
     <div>
-      <div
-        className="flex flex-wrap gap-2"
-        role="tablist"
-        aria-label="Filter portfolio by category"
-      >
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter gallery by category">
         {categories.map((category) => (
           <button
             key={category}
@@ -45,12 +39,8 @@ export function PortfolioGallery() {
 
       <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
-          <article
-            key={item.id}
-            className="group overflow-hidden border border-white/10 bg-brand-surface/30"
-          >
+          <article key={item.id} className="group overflow-hidden border border-white/10 bg-brand-surface/30">
             <div className="relative aspect-[4/3] overflow-hidden">
-              {/* CLIENT: Replace with real project photography */}
               <Image
                 src={item.imageUrl}
                 alt={item.title}
@@ -82,16 +72,6 @@ export function PortfolioGallery() {
           </article>
         ))}
       </div>
-
-      {items.length === 0 ? (
-        <p className="mt-10 text-center text-brand-slate">
-          No projects in this category yet.{" "}
-          <Link href="/quote" className="text-brand-gold underline-offset-2 hover:underline">
-            Be the first
-          </Link>
-          .
-        </p>
-      ) : null}
     </div>
   );
 }
