@@ -34,8 +34,10 @@ export async function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl;
   const isLoginPage = pathname === "/admin/login";
+  const isSignOut = pathname === "/admin/auth/signout";
 
-  if (!user && !isLoginPage) {
+  // Allow the sign-out route to run even if the session is already gone.
+  if (!user && !isLoginPage && !isSignOut) {
     const redirectUrl = request.nextUrl.clone();
     redirectUrl.pathname = "/admin/login";
     redirectUrl.searchParams.set("redirect", pathname);

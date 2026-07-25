@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useFormStatus } from "react-dom";
 import { Bell, LogOut, Menu } from "lucide-react";
-import { signOutAdmin } from "@/actions/admin/auth";
 import { initialsFromName } from "@/lib/admin/format";
 import { cn } from "@/lib/utils";
 
@@ -95,7 +94,7 @@ export function AdminTopbar({
             </div>
           </div>
 
-          <form action={signOutAdmin}>
+          <form action="/admin/auth/signout" method="post">
             <SignOutButton />
           </form>
         </div>

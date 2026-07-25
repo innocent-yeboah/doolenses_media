@@ -68,7 +68,7 @@ export function AdminSidebar({
       >
         {!collapsed ? (
           <Link href="/admin" className="min-w-0" onClick={onClose}>
-            <Logo variant="light" size="sm" />
+            <Logo variant="light" size="sm" href={null} />
           </Link>
         ) : (
           <Link
