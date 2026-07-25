@@ -69,7 +69,11 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 md:grid-cols-4">
           {TRUST_STATS.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="font-display text-3xl font-bold text-brand-gold">{stat.value}</p>
+              <p className="font-display text-3xl font-bold text-brand-gold">
+                {"display" in stat && stat.display
+                  ? stat.display
+                  : `${stat.numeric ?? ""}${stat.suffix}`}
+              </p>
               <p className="mt-1 text-xs uppercase tracking-[0.16em] text-brand-slate">{stat.label}</p>
             </div>
           ))}

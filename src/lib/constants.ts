@@ -37,11 +37,16 @@ export const NAV_LINKS = [
 ] as const;
 
 export const TRUST_STATS = [
-  { value: "10+", label: "Years of Experience" },
-  { value: "500+", label: "Events Covered" },
-  { value: "100%", label: "Client Dedication" },
-  { value: "Nationwide", label: "Coverage Across Ghana" },
-] as const;
+  { numeric: 10, suffix: "+", label: "Years of Experience" },
+  { numeric: 500, suffix: "+", label: "Events Covered" },
+  { numeric: 100, suffix: "%", label: "Client Dedication" },
+  { numeric: null, display: "Nationwide", suffix: "", label: "Coverage Across Ghana" },
+] as const satisfies ReadonlyArray<{
+  numeric: number | null;
+  suffix: string;
+  label: string;
+  display?: string;
+}>;
 
 export const EVENT_TYPES = [
   "Weddings",
