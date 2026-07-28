@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { HomeHero } from "@/components/home/HomeHero";
 import { AboutPreview } from "@/components/home/AboutPreview";
+import { ProcessSection } from "@/components/home/ProcessSection";
+import { WorksSection } from "@/components/home/WorksSection";
+import { FactCounter } from "@/components/home/FactCounter";
 import { ServicesOverview } from "@/components/home/ServicesOverview";
-import { WhyChoose } from "@/components/home/WhyChoose";
 import { Testimonials } from "@/components/home/Testimonials";
-import { HomeCTA } from "@/components/home/HomeCTA";
+import { JournalSection } from "@/components/home/JournalSection";
+import { BrandStrip } from "@/components/home/BrandStrip";
 import { COMPANY } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -13,15 +16,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+/** Munson Home One section rhythm adapted for Doolenses. */
 export default function HomePage() {
   return (
     <>
       <HomeHero />
       <AboutPreview />
+      <ProcessSection />
+      <WorksSection />
+      <FactCounter />
       <ServicesOverview />
-      <WhyChoose />
       <Testimonials />
-      <HomeCTA />
+      <JournalSection />
+      <BrandStrip />
     </>
   );
 }

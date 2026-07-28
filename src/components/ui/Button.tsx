@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "outline" | "outlineDark";
 type ButtonSize = "sm" | "md" | "lg";
 
 const variants: Record<ButtonVariant, string> = {
@@ -13,6 +13,9 @@ const variants: Record<ButtonVariant, string> = {
     "bg-transparent text-brand-muted hover:text-white hover:bg-white/5 focus-visible:ring-brand-gold",
   outline:
     "bg-transparent border border-brand-gold/70 text-brand-gold hover:bg-brand-gold hover:text-brand-navy focus-visible:ring-brand-gold",
+  /** Munson theme-btn-two — outline that fills on light surfaces */
+  outlineDark:
+    "bg-transparent border border-brand-gold text-brand-ink hover:bg-brand-gold hover:text-brand-navy focus-visible:ring-brand-gold",
 };
 
 const sizes: Record<ButtonSize, string> = {

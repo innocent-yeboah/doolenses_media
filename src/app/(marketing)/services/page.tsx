@@ -24,9 +24,9 @@ export default function ServicesPage() {
           <ServicesGrid />
         </div>
       </section>
-      <section className="border-t border-white/10 bg-brand-surface/40 px-4 py-16 text-center sm:px-6 lg:px-8">
+      <section className="border-t border-black/5 bg-brand-ink px-4 py-16 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-3xl font-bold text-white">Need a custom production package?</h2>
-        <p className="mx-auto mt-3 max-w-xl text-brand-slate">
+        <p className="mx-auto mt-3 max-w-xl text-white/60">
           Tell us about your event and we&apos;ll design a crew, kit, and deliverable plan around your goals.
         </p>
         <Button href="/quote" className="mt-8" size="lg">

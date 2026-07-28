@@ -37,10 +37,10 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">Our story</p>
-            <h2 className="mt-3 font-display text-3xl font-bold text-white md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-bold text-brand-ink md:text-4xl">
               Discover the Heart of Doolenses
             </h2>
-            <div className="mt-6 space-y-4 text-brand-slate leading-relaxed">
+            <div className="mt-6 space-y-4 text-brand-body leading-relaxed">
               <p>
                 At Doolenses, we&apos;ve helped countless clients enhance their visibility through captivating
                 event coverage. Our professional media solutions ensure your significant moments are
@@ -54,7 +54,7 @@ export default function AboutPage() {
               <p>Our studio ethos is simple: {COMPANY.tagline}.</p>
             </div>
           </div>
-          <div className="relative aspect-[4/3] w-full overflow-hidden border border-white/10 bg-brand-navy lg:aspect-square">
+          <div className="relative aspect-[4/3] w-full overflow-hidden border border-black/10 bg-brand-navy lg:aspect-square">
             <Image
               src="/images/about/about-team.jpg"
               alt="The Doolenses production team in studio"
@@ -67,7 +67,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-brand-surface/40 px-4 py-16 sm:px-6 lg:px-8">
+      <section className="border-y border-black/10 bg-brand-mist px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <TrustStats variant="banner" />
         </div>
@@ -75,16 +75,16 @@ export default function AboutPage() {
 
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2">
-          <div className="border border-white/10 p-8">
+          <div className="border border-black/10 p-8">
             <h3 className="font-display text-2xl font-bold text-brand-gold">Mission</h3>
-            <p className="mt-4 text-brand-muted leading-relaxed">
+            <p className="mt-4 text-brand-body leading-relaxed">
               To provide exceptional video production and media coverage that captures the essence of every
               event, fostering meaningful connections and lasting memories.
             </p>
           </div>
-          <div className="border border-white/10 p-8">
+          <div className="border border-black/10 p-8">
             <h3 className="font-display text-2xl font-bold text-brand-gold">Vision</h3>
-            <p className="mt-4 text-brand-muted leading-relaxed">
+            <p className="mt-4 text-brand-body leading-relaxed">
               To be Ghana&apos;s most trusted premium production partner — recognised for creative excellence,
               technical mastery, and unwavering professionalism.
             </p>
@@ -92,7 +92,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="border-t border-black/10 px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="The crew"
@@ -102,19 +102,19 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((member) => (
               <article key={member.role} className="text-center">
-                <div className="relative mx-auto aspect-square w-full max-w-[220px] overflow-hidden border border-white/10">
+                <div className="relative mx-auto aspect-square w-full max-w-[220px] overflow-hidden border border-black/10">
                   <Image src={member.imageUrl} alt={member.name} fill sizes="220px" className="object-cover" />
                 </div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-white">{member.name}</h3>
+                <h3 className="mt-4 font-display text-lg font-semibold text-brand-ink">{member.name}</h3>
                 <p className="text-sm text-brand-gold">{member.role}</p>
-                <p className="mt-2 text-sm text-brand-slate">{member.bio}</p>
+                <p className="mt-2 text-sm text-brand-body">{member.bio}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-brand-surface/30 px-4 py-20 sm:px-6 lg:px-8">
+      <section className="border-t border-black/10 bg-brand-mist px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
             eyebrow="Capabilities"
@@ -123,7 +123,7 @@ export default function AboutPage() {
           />
           <ul className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
             {EQUIPMENT.map((item) => (
-              <li key={item} className="border border-white/10 bg-brand-navy/40 px-5 py-4 text-sm text-brand-muted">
+              <li key={item} className="border border-black/10 bg-white px-5 py-4 text-sm text-brand-body">
                 <span className="mr-2 text-brand-gold" aria-hidden>
                   ▸
                 </span>
@@ -140,8 +140,8 @@ export default function AboutPage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {WHY_CHOOSE.map((item) => (
               <div key={item.title} className="border-l border-brand-gold/40 pl-5">
-                <h3 className="font-display text-xl font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm text-brand-slate">{item.description}</p>
+                <h3 className="font-display text-xl font-semibold text-brand-ink">{item.title}</h3>
+                <p className="mt-2 text-sm text-brand-body">{item.description}</p>
               </div>
             ))}
           </div>

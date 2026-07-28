@@ -94,7 +94,7 @@ export function QuoteForm() {
                 ? "border-brand-gold bg-brand-gold/10 text-brand-gold"
                 : index < step
                   ? "border-brand-gold/40 text-brand-gold/80"
-                  : "border-white/15 text-brand-slate"
+                  : "border-black/15 text-brand-body"
             )}
           >
             <span className="font-display text-sm">{index + 1}</span>
@@ -147,7 +147,7 @@ export function QuoteForm() {
         {step === 2 ? (
           <div className="space-y-4">
             <fieldset>
-              <legend className="mb-3 text-sm font-medium text-brand-muted">What do you need?</legend>
+              <legend className="mb-3 text-sm font-medium text-brand-ink">What do you need?</legend>
               <div className="grid gap-3 sm:grid-cols-2">
                 {PRODUCTION_NEEDS.map((need) => {
                   const checked = productionNeeds?.includes(need.id);
@@ -161,7 +161,7 @@ export function QuoteForm() {
                         "border px-4 py-3 text-left text-sm transition",
                         checked
                           ? "border-brand-gold bg-brand-gold/10 text-brand-gold"
-                          : "border-white/15 text-brand-muted hover:border-brand-gold/50"
+                          : "border-black/15 text-brand-body hover:border-brand-gold/50"
                       )}
                     >
                       {need.label}
@@ -188,7 +188,7 @@ export function QuoteForm() {
                 ))}
               </select>
             </Field>
-            <p className="text-sm text-brand-slate">
+            <p className="text-sm text-brand-body">
               Budgets help us recommend the right crew and package. Exact pricing follows a short consultation.
             </p>
             <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
@@ -237,7 +237,7 @@ function Field({
 }) {
   return (
     <label className={cn("block text-sm", className)}>
-      <span className="mb-1.5 block font-medium text-brand-muted">{label}</span>
+      <span className="mb-1.5 block font-medium text-brand-ink">{label}</span>
       {children}
       {error ? <span className="mt-1 block text-xs text-red-400">{error}</span> : null}
     </label>

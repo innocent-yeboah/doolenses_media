@@ -113,6 +113,55 @@ export const WHY_CHOOSE = [
   },
 ] as const;
 
+/** Munson-style capability meters for the about block */
+export const CAPABILITY_SKILLS = [
+  { label: "Cinematic Events", percent: 96 },
+  { label: "Live Streaming", percent: 90 },
+  { label: "Commercial Films", percent: 88 },
+  { label: "Post-Production", percent: 94 },
+] as const;
+
+/** Munson-style 3-step process */
+export const PRODUCTION_PROCESS = [
+  {
+    title: "Concept",
+    description:
+      "We listen, storyboard, and plan every camera, cue, and deliverable around your event vision.",
+  },
+  {
+    title: "Production",
+    description:
+      "On set with disciplined crews, cinema cameras, and lighting that makes every moment broadcast-ready.",
+  },
+  {
+    title: "Presentation",
+    description:
+      "Polished edits, colour, and delivery formats your audience will watch again and again.",
+  },
+] as const;
+
+/** Light journal cards for Munson “Latest Blog” rhythm (uses existing stills) */
+export const HOME_JOURNAL = [
+  {
+    title: "Behind the lens at Labadi",
+    date: "14 Jun, 2025",
+    href: "/portfolio",
+    imageUrl: "/services/weddings.jpg",
+  },
+  {
+    title: "Staging the Ghana CEO Summit",
+    date: "22 Sep, 2025",
+    href: "/services#conferences",
+    imageUrl: "/services/conferences.jpg",
+  },
+  {
+    title: "Night shoots & campaign craft",
+    date: "12 Oct, 2024",
+    href: "/services#election-campaigns",
+    imageUrl: "/services/election-campaigns.jpg",
+  },
+] as const;
+
 export const TESTIMONIALS = [
   {
     name: "Ama Serwaa",

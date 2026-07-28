@@ -12,12 +12,16 @@ const config: Config = {
         brand: {
           navy: "#0A2540",
           dark: "#1A1A1A",
+          ink: "#232323",
           gold: "#D4AF37",
           "gold-light": "#FFC107",
           white: "#FFFFFF",
           muted: "#F5F5F5",
           slate: "#8A9BB0",
           surface: "#122C48",
+          paper: "#FFFFFF",
+          mist: "#F6F6F6",
+          body: "#777777",
         },
       },
       fontFamily: {

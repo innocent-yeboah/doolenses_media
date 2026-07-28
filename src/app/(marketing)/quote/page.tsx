@@ -19,7 +19,7 @@ export default function QuotePage() {
         imageAlt="Creative production consultation"
       />
       <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl border border-white/10 bg-brand-surface/30 p-6 sm:p-10">
+        <div className="mx-auto max-w-3xl border border-black/10 bg-brand-mist p-6 sm:p-10">
           <QuoteForm />
         </div>
       </section>
