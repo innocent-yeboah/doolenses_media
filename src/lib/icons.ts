@@ -1,10 +1,16 @@
 import {
+  Camera,
   Church,
+  Clapperboard,
   Flower2,
   GraduationCap,
   Heart,
+  Monitor,
   MonitorPlay,
   Music,
+  Palette,
+  Printer,
+  Shirt,
   Trophy,
   Users,
   Vote,
@@ -21,6 +27,12 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Vote,
   GraduationCap,
   Trophy,
+  Palette,
+  Camera,
+  Clapperboard,
+  Monitor,
+  Printer,
+  Shirt,
 };
 
 export function getServiceIcon(name: string): LucideIcon {

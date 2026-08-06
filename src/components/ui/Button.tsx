@@ -6,22 +6,21 @@ type ButtonSize = "sm" | "md" | "lg";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-brand-gold text-white hover:bg-brand-gold-light focus-visible:ring-brand-gold",
+    "bg-brand-gold text-brand-black hover:bg-brand-gold-light focus-visible:ring-brand-gold",
   secondary:
-    "bg-white text-brand-ink hover:bg-brand-mist focus-visible:ring-brand-ink",
+    "bg-brand-black text-brand-white hover:bg-black focus-visible:ring-brand-black",
   ghost:
-    "bg-transparent text-brand-muted hover:text-white hover:bg-white/5 focus-visible:ring-brand-gold",
+    "bg-transparent text-brand-black hover:bg-brand-soft focus-visible:ring-brand-gold",
   outline:
-    "bg-transparent border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-white focus-visible:ring-brand-gold",
-  /** Munson theme-btn-two — outline that fills on light surfaces */
+    "bg-transparent border border-brand-white text-brand-white hover:bg-brand-white hover:text-brand-black focus-visible:ring-brand-white",
   outlineDark:
-    "bg-transparent border border-brand-gold text-brand-ink hover:bg-brand-gold hover:text-white focus-visible:ring-brand-gold",
+    "bg-transparent border border-brand-black text-brand-black hover:bg-brand-black hover:text-brand-white focus-visible:ring-brand-black",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-sm",
-  lg: "px-8 py-3.5 text-base",
+  sm: "px-5 py-2 text-xs",
+  md: "px-7 py-3 text-sm",
+  lg: "px-9 py-3.5 text-sm",
 };
 
 type CommonProps = {
@@ -48,7 +47,7 @@ export function Button({
   ...props
 }: ButtonAsButton | ButtonAsLink) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 font-sans font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy disabled:opacity-60 disabled:pointer-events-none",
+    "inline-flex items-center justify-center gap-2 font-sans font-semibold tracking-[0.08em] uppercase transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:opacity-60 disabled:pointer-events-none",
     variants[variant],
     sizes[size],
     className
@@ -59,12 +58,7 @@ export function Button({
     const external = href.startsWith("http");
     if (external) {
       return (
-        <a
-          href={href}
-          target={target ?? "_blank"}
-          rel={rel ?? "noopener noreferrer"}
-          className={classes}
-        >
+        <a href={href} target={target ?? "_blank"} rel={rel ?? "noopener noreferrer"} className={classes}>
           {children}
         </a>
       );

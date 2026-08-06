@@ -3,8 +3,7 @@ import { COMPANY } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = COMPANY.siteUrl;
-  const routes = ["", "/services", "/portfolio", "/about", "/contact", "/quote"];
-  return routes.map((route) => ({
+  return ["", "/services", "/portfolio", "/about", "/contact"].map((route) => ({
     url: `${base}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",

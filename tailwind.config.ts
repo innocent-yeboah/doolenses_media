@@ -10,24 +10,22 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          /** Munson-faithful tokens */
-          accent: "#505cfd",
-          ink: "#232323",
-          body: "#777777",
-          paper: "#FFFFFF",
-          mist: "#F6F6F6",
-          soft: "#F3F3F3",
-          line: "#E5E5E5",
           black: "#1A1A1A",
           white: "#FFFFFF",
-          muted: "#848484",
-          /** Aliases */
+          soft: "#F5F5F5",
+          gold: "#D4AF37",
+          "gold-light": "#E4C65A",
+          muted: "#6B6B6B",
+          line: "#E8E8E8",
+          /** Aliases for admin + legacy */
           navy: "#0A2540",
-          dark: "#232323",
-          gold: "#505cfd",
-          "gold-light": "#6b75ff",
-          slate: "#777777",
+          dark: "#111111",
+          ink: "#1A1A1A",
+          slate: "#6B6B6B",
           surface: "#122C48",
+          paper: "#FFFFFF",
+          mist: "#F5F5F5",
+          body: "#6B6B6B",
         },
       },
       fontFamily: {
@@ -35,12 +33,12 @@ const config: Config = {
         sans: ["var(--font-sans)", "sans-serif"],
       },
       boxShadow: {
-        elevate: "0 20px 50px rgba(0,0,0,0.18)",
+        elevate: "0 18px 40px rgba(0,0,0,0.12)",
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease-out forwards",
         "fade-in": "fadeIn 0.6s ease-out forwards",
-        "hero-kenburns": "heroKenburns 7s ease-out forwards",
+        "hero-kenburns": "heroKenburns 8s ease-out forwards",
       },
       keyframes: {
         fadeUp: {
@@ -53,7 +51,7 @@ const config: Config = {
         },
         heroKenburns: {
           "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.08)" },
+          "100%": { transform: "scale(1.06)" },
         },
       },
     },

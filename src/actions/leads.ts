@@ -56,12 +56,12 @@ export async function submitContactForm(values: ContactFormValues): Promise<Acti
     };
   }
 
-  const { name, email, phone, eventType, message } = parsed.data;
+  const { name, email, phone, subject, message } = parsed.data;
   const saved = await saveLead({
     name,
     email,
     phone,
-    event_type: eventType,
+    event_type: subject,
     message,
     source: "contact",
     status: "new",
@@ -70,7 +70,14 @@ export async function submitContactForm(values: ContactFormValues): Promise<Acti
     return { success: false, message: "Let's try that again together? Please retry or call us." };
   }
 
-  await sendLeadNotification({ name, email, phone, eventType, message, source: "contact" });
+  await sendLeadNotification({
+    name,
+    email,
+    phone,
+    eventType: subject,
+    message,
+    source: "contact",
+  });
   await sendLeadConfirmation({ name, email });
   return { success: true, message: "Thank you. Our team will contact you within one business day." };
 }

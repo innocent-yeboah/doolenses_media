@@ -5,17 +5,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { submitContactForm } from "@/actions/leads";
 import { Button } from "@/components/ui/Button";
-import { EVENT_TYPES } from "@/lib/constants";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
 
-export function ContactForm({
-  defaultEventType,
-}: {
-  defaultEventType?: (typeof EVENT_TYPES)[number];
-}) {
-  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(
-    null
-  );
+export function ContactForm() {
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [pending, startTransition] = useTransition();
   const {
     register,
@@ -28,7 +21,7 @@ export function ContactForm({
       name: "",
       email: "",
       phone: "",
-      eventType: defaultEventType || "Weddings",
+      subject: "",
       message: "",
       website: "",
     },
@@ -44,25 +37,19 @@ export function ContactForm({
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Full name" error={errors.name?.message}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+      <div className="grid gap-5 sm:grid-cols-2">
+        <Field label="Name" error={errors.name?.message}>
           <input {...register("name")} className="field-input" placeholder="Your name" />
         </Field>
         <Field label="Email" error={errors.email?.message}>
-          <input {...register("email")} type="email" className="field-input" placeholder="you@company.com" />
+          <input {...register("email")} type="email" className="field-input" placeholder="you@email.com" />
         </Field>
         <Field label="Phone" error={errors.phone?.message}>
           <input {...register("phone")} type="tel" className="field-input" placeholder="055 619 5581" />
         </Field>
-        <Field label="Event type" error={errors.eventType?.message}>
-          <select {...register("eventType")} className="field-input">
-            {EVENT_TYPES.map((type) => (
-              <option key={type} value={type}>
-                {type}
-              </option>
-            ))}
-          </select>
+        <Field label="Subject" error={errors.subject?.message}>
+          <input {...register("subject")} className="field-input" placeholder="Project type or topic" />
         </Field>
       </div>
       <Field label="Message" error={errors.message?.message}>
@@ -70,19 +57,19 @@ export function ContactForm({
           {...register("message")}
           rows={5}
           className="field-input resize-y"
-          placeholder="Tell us about your event, date, and vision..."
+          placeholder="Tell us about your idea..."
         />
       </Field>
-      <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
+      <div className="absolute -left-[9999px] opacity-0" aria-hidden>
         <input {...register("website")} tabIndex={-1} autoComplete="off" />
       </div>
       {message ? (
-        <p className={message.type === "success" ? "text-sm text-emerald-400" : "text-sm text-red-400"}>
+        <p className={message.type === "success" ? "text-sm text-brand-black" : "text-sm text-red-600"}>
           {message.text}
         </p>
       ) : null}
-      <Button type="submit" disabled={pending}>
-        {pending ? "Sending..." : "Send Message"}
+      <Button type="submit" disabled={pending} size="lg">
+        {pending ? "Sending…" : "Send Message"}
       </Button>
     </form>
   );
@@ -99,9 +86,9 @@ function Field({
 }) {
   return (
     <label className="block text-sm">
-      <span className="mb-1.5 block font-medium text-brand-ink">{label}</span>
+      <span className="mb-1.5 block font-medium text-brand-black">{label}</span>
       {children}
-      {error ? <span className="mt-1 block text-xs text-red-400">{error}</span> : null}
+      {error ? <span className="mt-1 block text-xs text-red-600">{error}</span> : null}
     </label>
   );
 }

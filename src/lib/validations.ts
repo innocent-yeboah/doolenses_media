@@ -7,7 +7,7 @@ export const contactFormSchema = z.object({
   name: z.string().min(2, "Please enter your full name").max(100),
   email: z.string().email("Please enter a valid email"),
   phone: z.string().regex(phoneRegex, "Please enter a valid phone number"),
-  eventType: z.enum(EVENT_TYPES, { message: "Please select an event type" }),
+  subject: z.string().min(2, "Please add a subject").max(120),
   message: z.string().min(10, "Please share a few more details").max(2000),
   website: z.string().optional(),
 });
@@ -28,14 +28,14 @@ export const quoteStep1Schema = z.object({
 });
 
 export const quoteStep2Schema = z.object({
-  eventType: z.enum(EVENT_TYPES, { message: "Please select an event type" }),
-  eventDate: z.string().min(1, "Please select an event date"),
-  eventLocation: z.string().min(2, "Please enter the event location").max(200),
+  eventType: z.enum(EVENT_TYPES, { message: "Please select a service" }),
+  eventDate: z.string().min(1, "Please select a date"),
+  eventLocation: z.string().min(2, "Please enter a location").max(200),
   eventDuration: z.string().min(1, "Please select duration"),
 });
 
 export const quoteStep3Schema = z.object({
-  productionNeeds: z.array(z.string()).min(1, "Select at least one production need"),
+  productionNeeds: z.array(z.string()).min(1, "Select at least one need"),
   message: z.string().max(2000).optional(),
 });
 

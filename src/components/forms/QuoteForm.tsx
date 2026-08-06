@@ -31,7 +31,7 @@ export function QuoteForm() {
       name: "",
       email: "",
       phone: "",
-      eventType: "Weddings",
+      eventType: "Other",
       eventDate: "",
       eventLocation: "",
       eventDuration: "Half day (4–6 hrs)",

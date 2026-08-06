@@ -14,6 +14,7 @@ const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -22,16 +23,16 @@ export const metadata: Metadata = {
     default: `${COMPANY.name} | ${COMPANY.subheadline}`,
     template: `%s | ${COMPANY.name}`,
   },
-  description:
-    "Doolenses Media is a television production and advertising agency in Awoshie, Accra, Ghana. Capturing moments, creating memories — creative work, for creative people.",
+  description: `${COMPANY.tagline}. ${COMPANY.agencyLine} in Accra, Ghana.`,
   keywords: [
-    "television production Accra",
-    "event videography Ghana",
-    "wedding films Accra",
     "Doolenses",
-    "Doolenses Media",
-    "media production Accra",
-    "Awoshie",
+    "creative studio Accra",
+    "graphic design Ghana",
+    "photography Accra",
+    "videography Ghana",
+    "web design Accra",
+    "printing Ghana",
+    "fashion costume Accra",
   ],
   icons: {
     icon: [{ url: "/favicon.ico" }, { url: "/brand/icon-48.png", type: "image/png", sizes: "48x48" }],
@@ -42,18 +43,17 @@ export const metadata: Metadata = {
     locale: "en_GH",
     url: COMPANY.siteUrl,
     siteName: COMPANY.legalName,
-    title: `${COMPANY.name} | ${COMPANY.heroHeadline}`,
+    title: `${COMPANY.name} | ${COMPANY.subheadline}`,
     description: COMPANY.tagline,
-    images: [{ url: "/brand/doolenses-logo-on-white.png", alt: "Doolenses logo" }],
+    images: [{ url: "/brand/doolenses-mark-mono.png", alt: "Doolenses logo" }],
   },
   robots: { index: true, follow: true },
 };
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   name: COMPANY.legalName,
-  alternateName: COMPANY.name,
   description: COMPANY.agencyLine,
   slogan: COMPANY.tagline,
   telephone: [COMPANY.officePhoneDisplay, COMPANY.phoneDisplay],
@@ -72,7 +72,7 @@ const localBusinessJsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
-      <body className="min-h-screen bg-brand-paper font-sans text-brand-ink antialiased">
+      <body className="min-h-screen bg-brand-white font-sans text-brand-black antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

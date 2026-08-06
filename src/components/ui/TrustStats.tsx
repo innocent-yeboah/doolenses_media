@@ -117,7 +117,10 @@ function StatItem({
 function useCountUp(stat: TrustStat, active: boolean) {
   const target = typeof stat.numeric === "number" ? stat.numeric : null;
   const suffix = stat.suffix ?? "";
-  const staticDisplay = "display" in stat ? stat.display : null;
+  const staticDisplay =
+    "display" in stat && typeof (stat as { display?: string }).display === "string"
+      ? (stat as { display?: string }).display
+      : null;
   const [value, setValue] = useState(0);
 
   useEffect(() => {

@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #232323;
+  --foreground: #1a1a1a;
 }
 
 html {
@@ -18,14 +18,14 @@ body {
 
 @layer base {
   ::selection {
-    background: rgba(80, 92, 253, 0.25);
-    color: #232323;
+    background: rgba(212, 175, 55, 0.35);
+    color: #1a1a1a;
   }
 }
 
 @layer components {
   .field-input {
-    @apply w-full border border-black/15 bg-white px-3 py-2.5 text-sm text-brand-ink outline-none transition placeholder:text-brand-body/70 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold;
+    @apply w-full border border-brand-line bg-white px-4 py-3 text-sm text-brand-black outline-none transition placeholder:text-brand-muted focus:border-brand-gold focus:ring-1 focus:ring-brand-gold;
   }
 }
 

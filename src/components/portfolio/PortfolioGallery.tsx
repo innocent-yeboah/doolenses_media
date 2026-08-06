@@ -2,8 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { MapPin } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { getPortfolioCategories, PORTFOLIO } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +16,7 @@ export function PortfolioGallery() {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Filter gallery by category">
+      <div className="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Filter portfolio">
         {categories.map((category) => (
           <button
             key={category}
@@ -28,8 +27,8 @@ export function PortfolioGallery() {
             className={cn(
               "px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition",
               active === category
-                ? "bg-[#f2f2f2] text-brand-ink"
-                : "bg-transparent text-brand-body hover:text-brand-ink"
+                ? "bg-brand-black text-white"
+                : "bg-brand-soft text-brand-muted hover:text-brand-black"
             )}
           >
             {category}
@@ -37,37 +36,30 @@ export function PortfolioGallery() {
         ))}
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
-          <article key={item.id} className="group overflow-hidden bg-brand-mist">
-            <div className="relative aspect-[4/3] overflow-hidden">
+          <article key={item.id} className="group overflow-hidden border border-brand-line bg-brand-white">
+            <div className="relative aspect-[4/3] overflow-hidden bg-brand-soft">
               <Image
                 src={item.imageUrl}
                 alt={item.title}
                 fill
                 sizes="(max-width:768px) 100vw, 33vw"
-                className="object-cover transition duration-500 group-hover:scale-105"
+                className="object-cover transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute left-3 top-3 bg-brand-ink/85 px-2 py-1 text-xs font-medium uppercase tracking-wider text-brand-gold">
-                {item.category}
-              </div>
             </div>
-            <div className="bg-white p-5">
-              <h3 className="font-display text-xl font-semibold text-brand-ink">{item.title}</h3>
-              <p className="mt-1 text-sm text-brand-body">{item.clientName}</p>
-              <p className="mt-2 flex items-center gap-1.5 text-xs text-brand-body">
-                <MapPin className="h-3.5 w-3.5 text-brand-gold" aria-hidden />
-                {item.location}
+            <div className="p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-gold">
+                {item.category}
               </p>
-              <p className="mt-3 text-sm leading-relaxed text-brand-body">{item.description}</p>
-              <Button
-                href={`/contact?project=${encodeURIComponent(item.title)}`}
-                variant="outlineDark"
-                size="sm"
-                className="mt-5"
+              <h3 className="mt-2 font-display text-xl font-bold text-brand-black">{item.title}</h3>
+              <p className="mt-2 text-sm text-brand-muted">{item.description}</p>
+              <Link
+                href="/contact"
+                className="mt-4 inline-flex text-sm font-semibold text-brand-black underline-offset-4 transition hover:text-brand-gold hover:underline"
               >
-                Inquire about this project
-              </Button>
+                View Project
+              </Link>
             </div>
           </article>
         ))}

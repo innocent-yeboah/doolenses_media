@@ -2,42 +2,18 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const SLIDES = [
-  {
-    src: "/hero/slide-01-music-video-set.jpg",
-    alt: "Doolenses filming a music video set with performers and a camera jib",
-    title: "We craft bold ideas & visuals that truly work",
-  },
-  {
-    src: "/hero/slide-02-studio-cyclorama.jpg",
-    alt: "Doolenses studio shoot with performers on a cyclorama and camera crane",
-    title: "Design that feels fresh, unique & unmistakable",
-  },
-  {
-    src: "/hero/slide-03-pink-set-monitor.jpg",
-    alt: "Behind the camera on a stylized pink and green Doolenses production set",
-    title: "From first sketch to final pixel",
-  },
-  {
-    src: "/hero/slide-05-stadium-crew.jpg",
-    alt: "Doolenses production crew with equipment trolley at a stadium",
-    title: "Creative work for creative people",
-  },
-  {
-    src: "/hero/slide-06-beetle-crane.jpg",
-    alt: "Doolenses camera crane filming talent on a customized Beetle outdoors",
-    title: "We craft bold ideas & visuals that truly work",
-  },
+  "/hero/slide-01-music-video-set.jpg",
+  "/hero/slide-02-studio-cyclorama.jpg",
+  "/hero/slide-03-pink-set-monitor.jpg",
+  "/hero/slide-05-stadium-crew.jpg",
+  "/hero/slide-06-beetle-crane.jpg",
 ] as const;
 
-const INTERVAL_MS = 6000;
-
-/** Munson main-slider: full-bleed carousel, centered H1 + single CTA, side arrows. */
 export function HomeHero() {
   const [index, setIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -52,83 +28,48 @@ export function HomeHero() {
 
   useEffect(() => {
     if (reducedMotion) return;
-    const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % SLIDES.length);
-    }, INTERVAL_MS);
+    const id = window.setInterval(() => setIndex((i) => (i + 1) % SLIDES.length), 5500);
     return () => window.clearInterval(id);
   }, [reducedMotion]);
 
-  const go = (dir: -1 | 1) => {
-    setIndex((i) => (i + dir + SLIDES.length) % SLIDES.length);
-  };
-
-  const slide = SLIDES[index];
-
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-brand-ink sm:min-h-[800px]">
-      {SLIDES.map((item, i) => {
-        const active = i === index;
-        return (
-          <div
-            key={item.src}
-            className={cn(
-              "absolute inset-0 transition-opacity duration-[1200ms] ease-in-out",
-              active ? "z-[1] opacity-100" : "z-0 opacity-0"
-            )}
-            aria-hidden={!active}
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className={cn(
-                "object-cover object-center",
-                active && !reducedMotion && "animate-hero-kenburns"
-              )}
-            />
-          </div>
-        );
-      })}
-
-      <div className="pointer-events-none absolute inset-0 z-[2] bg-brand-ink/35" />
-
-      <div className="relative z-10 flex min-h-[100svh] items-center justify-center px-4 sm:min-h-[800px] sm:px-8">
+    <section className="relative flex min-h-[100svh] items-end overflow-hidden sm:items-center">
+      {SLIDES.map((src, i) => (
         <div
-          key={slide.src}
-          className="mx-auto max-w-4xl text-center motion-safe:animate-fade-up"
+          key={src}
+          className={cn(
+            "absolute inset-0 transition-opacity duration-1000",
+            i === index ? "z-[1] opacity-100" : "z-0 opacity-0"
+          )}
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-brand-gold">
-            {COMPANY.name}
+          <Image
+            src={src}
+            alt=""
+            fill
+            priority={i === 0}
+            sizes="100vw"
+            className={cn("object-cover", i === index && !reducedMotion && "animate-hero-kenburns")}
+          />
+        </div>
+      ))}
+      <div className="absolute inset-0 z-[2] bg-brand-black/55" />
+
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-24 pt-32 sm:pb-28 md:px-8">
+        <div className="max-w-3xl motion-safe:animate-fade-up">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-gold">
+            {COMPANY.subheadline}
           </p>
-          <h1 className="font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-[60px] lg:leading-[1.15]">
-            {slide.title}
+          <h1 className="mt-5 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl">
+            {COMPANY.heroHeadline}
           </h1>
+          <p className="mt-6 max-w-xl text-lg text-white/85 md:text-xl">{COMPANY.tagline}</p>
           <div className="mt-10">
-            <Button href="/quote" size="lg" className="min-w-[180px] uppercase tracking-[0.12em]">
-              Get Started
+            <Button href="/portfolio" size="lg">
+              Explore Our Work
             </Button>
           </div>
         </div>
       </div>
-
-      <button
-        type="button"
-        onClick={() => go(-1)}
-        className="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/25 bg-black/20 p-2 text-white backdrop-blur-sm transition hover:border-brand-gold hover:text-brand-gold sm:left-6 sm:p-3"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
-      </button>
-      <button
-        type="button"
-        onClick={() => go(1)}
-        className="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/25 bg-black/20 p-2 text-white backdrop-blur-sm transition hover:border-brand-gold hover:text-brand-gold sm:right-6 sm:p-3"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
-      </button>
     </section>
   );
 }

@@ -19,46 +19,25 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   const dark = tone === "dark";
   return (
-    <div
-      className={cn(
-        "max-w-3xl",
-        align === "center" && "mx-auto text-center",
-        className
-      )}
-    >
+    <div className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
-        <p
-          className={cn(
-            "text-xs font-semibold uppercase tracking-[0.25em]",
-            dark ? "text-brand-gold" : "text-brand-gold"
-          )}
-        >
-          {eyebrow}
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">{eyebrow}</p>
       ) : null}
       <h2
         className={cn(
-          "font-display text-3xl font-bold sm:text-4xl md:text-[42px] md:leading-[50px]",
+          "font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl",
           eyebrow && "mt-3",
-          dark ? "text-white" : "text-brand-ink"
+          dark ? "text-white" : "text-brand-black"
         )}
       >
         {title}
       </h2>
       <span
-        className={cn(
-          "mt-4 block h-1 w-10 bg-brand-gold",
-          align === "center" && "mx-auto"
-        )}
+        className={cn("mt-4 block h-1 w-10 bg-brand-gold", align === "center" && "mx-auto")}
         aria-hidden
       />
       {description ? (
-        <p
-          className={cn(
-            "mt-6 text-base leading-relaxed sm:text-lg",
-            dark ? "text-white/65" : "text-brand-body"
-          )}
-        >
+        <p className={cn("mt-5 text-base leading-relaxed md:text-lg", dark ? "text-white/70" : "text-brand-muted")}>
           {description}
         </p>
       ) : null}
