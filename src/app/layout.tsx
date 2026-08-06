@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Montserrat, Inter } from "next/font/google";
 import { COMPANY } from "@/lib/constants";
 import "./globals.css";
 
-const display = Playfair_Display({
+const display = Montserrat({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
 const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -23,16 +22,16 @@ export const metadata: Metadata = {
     default: `${COMPANY.name} | ${COMPANY.subheadline}`,
     template: `%s | ${COMPANY.name}`,
   },
-  description: `${COMPANY.tagline}. ${COMPANY.agencyLine} in Accra, Ghana.`,
+  description:
+    "Doolenses Media is a television production and advertising agency in Awoshie, Accra, Ghana. Capturing moments, creating memories — creative work, for creative people.",
   keywords: [
+    "television production Accra",
+    "event videography Ghana",
+    "wedding films Accra",
     "Doolenses",
-    "creative studio Accra",
-    "graphic design Ghana",
-    "photography Accra",
-    "videography Ghana",
-    "web design Accra",
-    "printing Ghana",
-    "fashion costume Accra",
+    "Doolenses Media",
+    "media production Accra",
+    "Awoshie",
   ],
   icons: {
     icon: [{ url: "/favicon.ico" }, { url: "/brand/icon-48.png", type: "image/png", sizes: "48x48" }],
@@ -43,7 +42,7 @@ export const metadata: Metadata = {
     locale: "en_GH",
     url: COMPANY.siteUrl,
     siteName: COMPANY.legalName,
-    title: `${COMPANY.name} | ${COMPANY.subheadline}`,
+    title: `${COMPANY.name} | ${COMPANY.heroHeadline}`,
     description: COMPANY.tagline,
     images: [{ url: "/brand/doolenses-logo-on-white.png", alt: "Doolenses logo" }],
   },
@@ -52,7 +51,7 @@ export const metadata: Metadata = {
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": "LocalBusiness",
   name: COMPANY.legalName,
   alternateName: COMPANY.name,
   description: COMPANY.agencyLine,
@@ -73,7 +72,7 @@ const localBusinessJsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
-      <body className="min-h-screen bg-brand-white font-sans text-brand-black antialiased">
+      <body className="min-h-screen bg-brand-paper font-sans text-brand-ink antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}

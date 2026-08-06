@@ -13,7 +13,7 @@ function InstagramIcon({ className }: { className?: string }) {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
@@ -26,7 +26,8 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-export function SocialLinks({ className, iconClassName }: SocialLinksProps) {
+/** Public profile links — Instagram is the primary channel. */
+export function SocialLinks({ className, iconClassName, tone = "light" }: SocialLinksProps) {
   return (
     <ul className={cn("flex items-center gap-3", className)}>
       <li>
@@ -35,7 +36,12 @@ export function SocialLinks({ className, iconClassName }: SocialLinksProps) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Doolenses on Instagram"
-          className="inline-flex h-10 w-10 items-center justify-center border border-brand-line text-brand-black transition hover:border-brand-black"
+          className={cn(
+            "inline-flex h-10 w-10 items-center justify-center rounded-md border transition hover:border-brand-gold/40 hover:text-brand-gold",
+            tone === "dark"
+              ? "border-white/15 text-white/70"
+              : "border-black/10 text-brand-body"
+          )}
         >
           <InstagramIcon className={cn("h-5 w-5", iconClassName)} />
         </a>

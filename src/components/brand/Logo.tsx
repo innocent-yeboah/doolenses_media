@@ -4,7 +4,8 @@ import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
-  /** Show wordmark beside the mark */
+  /** light = white wordmark (over dark hero); dark = black wordmark (over white) */
+  variant?: "light" | "dark";
   withWordmark?: boolean;
   size?: "sm" | "md" | "lg";
   href?: string | null;
@@ -13,15 +14,16 @@ type LogoProps = {
 };
 
 const MARK = {
-  sm: 32,
-  md: 40,
+  sm: 36,
+  md: 44,
   lg: 56,
 } as const;
 
 /**
- * Editorial monochrome mark (white geometry on black square) + optional wordmark.
+ * Munson header logo: mono mark + Doolenses wordmark.
  */
 export function Logo({
+  variant = "dark",
   withWordmark = true,
   size = "md",
   href = "/",
@@ -44,10 +46,11 @@ export function Logo({
       {withWordmark ? (
         <span
           className={cn(
-            "font-display font-semibold tracking-tight text-brand-black",
-            size === "sm" && "text-lg",
-            size === "md" && "text-2xl md:text-[1.65rem]",
-            size === "lg" && "text-3xl"
+            "font-display font-bold uppercase tracking-[0.04em]",
+            size === "sm" && "text-base",
+            size === "md" && "text-lg sm:text-xl",
+            size === "lg" && "text-2xl",
+            variant === "light" ? "text-white" : "text-brand-ink"
           )}
         >
           {COMPANY.name}
@@ -67,7 +70,7 @@ export function Logo({
   return (
     <Link
       href={href}
-      className="inline-flex items-center transition hover:opacity-80"
+      className="inline-flex items-center transition hover:opacity-90"
       aria-label={`${COMPANY.name} home`}
     >
       {content}

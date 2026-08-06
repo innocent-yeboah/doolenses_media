@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #1a1a1a;
+  --foreground: #232323;
 }
 
 html {
@@ -18,14 +18,14 @@ body {
 
 @layer base {
   ::selection {
-    background: #1a1a1a;
-    color: #ffffff;
+    background: rgba(80, 92, 253, 0.25);
+    color: #232323;
   }
 }
 
 @layer components {
   .field-input {
-    @apply w-full border-0 border-b border-brand-line bg-transparent px-0 py-3 text-sm text-brand-black outline-none transition placeholder:text-brand-muted focus:border-brand-black;
+    @apply w-full border border-black/15 bg-white px-3 py-2.5 text-sm text-brand-ink outline-none transition placeholder:text-brand-body/70 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold;
   }
 }
 
@@ -39,5 +39,10 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .animate-hero-kenburns {
+    animation: none !important;
+    transform: none !important;
   }
 }

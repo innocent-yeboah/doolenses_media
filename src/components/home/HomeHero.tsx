@@ -11,27 +11,27 @@ const SLIDES = [
   {
     src: "/hero/slide-01-music-video-set.jpg",
     alt: "Doolenses filming a music video set with performers and a camera jib",
-    title: COMPANY.heroHeadline,
+    title: "We craft bold ideas & visuals that truly work",
   },
   {
     src: "/hero/slide-02-studio-cyclorama.jpg",
     alt: "Doolenses studio shoot with performers on a cyclorama and camera crane",
-    title: "Creative work, for creative people",
+    title: "Design that feels fresh, unique & unmistakable",
   },
   {
     src: "/hero/slide-03-pink-set-monitor.jpg",
     alt: "Behind the camera on a stylized pink and green Doolenses production set",
-    title: "Television production & advertising excellence",
+    title: "From first sketch to final pixel",
   },
   {
     src: "/hero/slide-05-stadium-crew.jpg",
     alt: "Doolenses production crew with equipment trolley at a stadium",
-    title: "Capturing moments, creating memories",
+    title: "Creative work for creative people",
   },
   {
     src: "/hero/slide-06-beetle-crane.jpg",
     alt: "Doolenses camera crane filming talent on a customized Beetle outdoors",
-    title: COMPANY.heroHeadline,
+    title: "We craft bold ideas & visuals that truly work",
   },
 ] as const;
 
