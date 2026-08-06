@@ -1,23 +1,21 @@
 export const COMPANY = {
   name: "Doolenses",
-  legalName: "Doolenses Media",
-  tagline: "Creative Work, For Creative People",
-  subheadline: "Television Production and Advertising Excellence",
-  agencyLine: "Television Production, and Advertising Agency",
-  heroHeadline: "Capturing Moments, Creating Memories",
+  legalName: "Doolenses",
+  tagline: "We craft bold ideas and visuals that truly work",
+  subheadline: "Creative Studio",
+  agencyLine: "Creative studio for design, photography, videography, web, print, and fashion",
+  heroHeadline: "Doolenses",
   heroTrust:
-    "Experience exceptional video coverage and media production tailored for your events in Accra, Ghana.",
+    "From the first sketch to the final pixel, we shape brands that feel unmistakable and built to perform across every screen and surface.",
   aboutBlurb:
-    "At Doolenses, we are passionate about capturing life's most important moments through high-quality video production and media coverage tailored to your needs.",
-  /** Mobile — primary WhatsApp / click-to-call */
+    "We are the explorers, the dreamers, and the builders who guide your brand toward its next destination.",
   phone: process.env.COMPANY_PHONE || "0556195581",
   phoneDisplay: "(+233) 055 619 5581",
-  /** Office landline */
   officePhone: process.env.COMPANY_OFFICE_PHONE || "0303963158",
   officePhoneDisplay: "(+233) 030 396 3158",
   email: process.env.COMPANY_EMAIL || "doolenses@gmail.com",
   address: "House No. 13, Mahogany Close, Near Mary-Lucy Hospital, Awoshie, Accra, Ghana",
-  addressShort: "House No. 13, Mahogany Close, Awoshie, Accra",
+  addressShort: "Awoshie, Accra, Ghana",
   city: "Accra",
   country: "Ghana",
   mapsQuery: "House No. 13 Mahogany Close Near Mary-Lucy Hospital Awoshie Accra Ghana",
@@ -33,18 +31,51 @@ export const COMPANY = {
     linkedin: "https://linkedin.com/company/doolenses",
   },
   whatsappMessage:
-    "Hello, I am interested in professional production services for my event. Please let me know how we can proceed.",
+    "Hello Doolenses — I'd like to talk about a creative project.",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://doolenses.com",
 } as const;
 
+/** Single-page editorial nav */
 export const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Gallery" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/#work", label: "Work" },
+  { href: "/#about", label: "About" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
+export const STUDIO_SERVICES = [
+  {
+    id: "graphic-design",
+    title: "Graphic Design",
+    items: ["Logo Design", "Brand Guide", "General Design"],
+  },
+  {
+    id: "photography",
+    title: "Photography",
+    items: ["Wedding Shoot", "Birthday Shoot", "Product Shoot", "Corporate Shoot"],
+  },
+  {
+    id: "videography",
+    title: "Videography",
+    items: ["Music Video", "Documentary", "Live Streaming", "Product Shoot", "Commercial"],
+  },
+  {
+    id: "web-design",
+    title: "Web Design",
+    items: ["E-commerce", "Corporate", "Mobile App"],
+  },
+  {
+    id: "printing",
+    title: "Printing",
+    items: ["T-Shirt", "Large Format", "Souvenir", "General Printing"],
+  },
+  {
+    id: "fashion",
+    title: "Fashion & Costume",
+    items: ["Female Dress", "Male Dresses", "Shoe", "Bags"],
+  },
+] as const;
+
+/** Kept for admin / legacy pages that still import these symbols */
 export const TRUST_STATS = [
   { numeric: 10, suffix: "+", label: "Years of Experience" },
   { numeric: 500, suffix: "+", label: "Events Covered" },
@@ -93,98 +124,82 @@ export const PRODUCTION_NEEDS = [
 export const WHY_CHOOSE = [
   {
     title: "Professional Production Team",
-    description:
-      "Seasoned directors, camera operators, and editors delivering broadcast-quality storytelling.",
+    description: "Seasoned creatives delivering work that performs.",
   },
   {
     title: "State-of-the-Art Equipment",
-    description:
-      "Cinema cameras, pro audio, lighting, and streaming kits ready for Accra venues and outdoor sets.",
+    description: "Tools ready for studio, stage, and street.",
   },
   {
     title: "Creative Excellence",
-    description:
-      "Cinematic narratives that elevate brands, celebrations, and campaigns — creative work for creative people.",
+    description: "Bold ideas shaped into unmistakable brands.",
   },
   {
     title: "Reliable Delivery",
-    description:
-      "Clear timelines, disciplined crews, and polished deliverables from first call to final cut.",
+    description: "Clear timelines from first sketch to final pixel.",
   },
 ] as const;
 
-/** Munson-style capability meters for the about block */
 export const CAPABILITY_SKILLS = [
-  { label: "Cinematic Events", percent: 96 },
-  { label: "Live Streaming", percent: 90 },
-  { label: "Commercial Films", percent: 88 },
-  { label: "Post-Production", percent: 94 },
+  { label: "Design", percent: 96 },
+  { label: "Photography", percent: 94 },
+  { label: "Videography", percent: 92 },
+  { label: "Web & Print", percent: 90 },
 ] as const;
 
-/** Munson-style 3-step process */
 export const PRODUCTION_PROCESS = [
   {
     title: "Concept",
-    description:
-      "We listen, storyboard, and plan every camera, cue, and deliverable around your event vision.",
+    description: "We listen, sketch, and define the idea with clarity.",
   },
   {
-    title: "Production",
-    description:
-      "On set with disciplined crews, cinema cameras, and lighting that makes every moment broadcast-ready.",
+    title: "Craft",
+    description: "Design, shoot, and build with disciplined creative focus.",
   },
   {
-    title: "Presentation",
-    description:
-      "Polished edits, colour, and delivery formats your audience will watch again and again.",
+    title: "Deliver",
+    description: "Polished assets ready for every screen and surface.",
   },
 ] as const;
 
-/** Light journal cards for Munson “Latest Blog” rhythm (uses existing stills) */
 export const HOME_JOURNAL = [
   {
-    title: "Behind the lens at Labadi",
-    date: "14 Jun, 2025",
-    href: "/portfolio",
-    imageUrl: "/services/weddings.jpg",
+    title: "Brand systems that travel",
+    date: "Studio",
+    href: "/#work",
+    imageUrl: "/hero/slide-01-music-video-set.jpg",
   },
   {
-    title: "Staging the Ghana CEO Summit",
-    date: "22 Sep, 2025",
-    href: "/services#conferences",
-    imageUrl: "/services/conferences.jpg",
+    title: "Frames that hold attention",
+    date: "Studio",
+    href: "/#work",
+    imageUrl: "/hero/slide-02-studio-cyclorama.jpg",
   },
   {
-    title: "Night shoots & campaign craft",
-    date: "12 Oct, 2024",
-    href: "/services#election-campaigns",
-    imageUrl: "/services/election-campaigns.jpg",
+    title: "Motion with intent",
+    date: "Studio",
+    href: "/#work",
+    imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
   },
 ] as const;
 
 export const TESTIMONIALS = [
   {
     name: "Ama Serwaa",
-    role: "Bride, Accra Wedding",
-    quote:
-      "Doolenses captured our wedding with elegance. Every frame felt cinematic — our families still watch the film months later.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
+    role: "Brand Client",
+    quote: "Doolenses shaped our identity with clarity and confidence.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
   },
   {
     name: "Kwame Mensah",
-    role: "Conference Director",
-    quote:
-      "From multi-camera coverage to live streaming, the team executed flawlessly. Sponsors were impressed with the production quality.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+    role: "Creative Director",
+    quote: "From concept to delivery, every detail felt intentional.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
   },
   {
-    name: "Pastor Emmanuel Osei",
-    role: "Crusade Organizer",
-    quote:
-      "They handled a large outdoor crusade with professionalism. Sound, lighting, and cameras were perfectly coordinated.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
+    name: "Efua Mensah",
+    role: "Founder",
+    quote: "Bold ideas, quiet precision — exactly what we needed.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80",
   },
 ] as const;

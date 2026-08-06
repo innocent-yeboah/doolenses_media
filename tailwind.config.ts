@@ -10,48 +10,44 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
+          /** Editorial monochrome */
+          black: "#1A1A1A",
+          white: "#FFFFFF",
+          soft: "#F5F5F5",
+          muted: "#6B6B6B",
+          line: "#E5E5E5",
+          /** Legacy aliases used by admin + older components */
           navy: "#0A2540",
-          dark: "#1A1A1A",
-          ink: "#232323",
+          dark: "#111111",
+          ink: "#1A1A1A",
           gold: "#D4AF37",
           "gold-light": "#FFC107",
-          white: "#FFFFFF",
-          muted: "#F5F5F5",
-          slate: "#8A9BB0",
+          slate: "#6B6B6B",
           surface: "#122C48",
           paper: "#FFFFFF",
-          mist: "#F6F6F6",
-          body: "#777777",
+          mist: "#F5F5F5",
+          body: "#6B6B6B",
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
-        sans: ["var(--font-sans)", "sans-serif"],
-      },
-      backgroundImage: {
-        "section-glow":
-          "radial-gradient(ellipse at top, rgba(212,175,55,0.08) 0%, transparent 55%)",
+        display: ["var(--font-display)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        elevate: "0 20px 50px rgba(0,0,0,0.35)",
+        elevate: "0 20px 50px rgba(0,0,0,0.12)",
       },
       animation: {
-        "fade-up": "fadeUp 0.7s ease-out forwards",
+        "fade-up": "fadeUp 0.8s ease-out forwards",
         "fade-in": "fadeIn 0.6s ease-out forwards",
-        "hero-kenburns": "heroKenburns 7s ease-out forwards",
       },
       keyframes: {
         fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "0%": { opacity: "0", transform: "translateY(28px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
-        },
-        heroKenburns: {
-          "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.08)" },
         },
       },
     },
