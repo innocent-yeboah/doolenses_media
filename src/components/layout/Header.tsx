@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { COMPANY, NAV_LINKS } from "@/lib/constants";
+import { Logo } from "@/components/brand/Logo";
+import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-/** Editorial header — logo wordmark + sparse nav. */
+/** Editorial header — mark + wordmark + sparse nav. */
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -33,13 +33,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:px-8">
-        <Link
-          href="/"
-          className="font-display text-2xl font-semibold tracking-tight text-brand-black md:text-[1.65rem]"
-          aria-label={`${COMPANY.name} home`}
-        >
-          {COMPANY.name}
-        </Link>
+        <Logo size="md" priority />
 
         <nav className="hidden items-center gap-10 md:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => (

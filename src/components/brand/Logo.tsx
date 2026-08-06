@@ -1,57 +1,76 @@
 import Image from "next/image";
 import Link from "next/link";
+import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 type LogoProps = {
-  variant?: "light" | "dark";
-  size?: "sm" | "md" | "lg" | "hero";
+  /** Show wordmark beside the mark */
+  withWordmark?: boolean;
+  size?: "sm" | "md" | "lg";
   href?: string | null;
   className?: string;
   priority?: boolean;
 };
 
-const SIZES = {
-  sm: { width: 150, height: 46 },
-  md: { width: 190, height: 58 },
-  lg: { width: 260, height: 80 },
-  hero: { width: 380, height: 116 },
+const MARK = {
+  sm: 32,
+  md: 40,
+  lg: 56,
 } as const;
 
+/**
+ * Editorial monochrome mark (white geometry on black square) + optional wordmark.
+ */
 export function Logo({
-  variant = "light",
+  withWordmark = true,
   size = "md",
   href = "/",
   className,
   priority = false,
 }: LogoProps) {
-  const dims = SIZES[size];
-  const src =
-    variant === "light"
-      ? "/brand/doolenses-logo-white.png"
-      : "/brand/doolenses-logo.png";
+  const px = MARK[size];
 
-  const image = (
-    <Image
-      src={src}
-      alt="doolenses — Creative Work for Creative People"
-      width={dims.width}
-      height={dims.height}
-      priority={priority}
-      className={cn(
-        "h-auto w-auto max-w-full object-contain object-left",
-        size === "hero" && "w-full max-w-[min(100%,24rem)] md:max-w-[26rem]",
-        size === "md" && "h-10 w-auto max-h-10 sm:h-auto sm:max-h-14",
-        size === "sm" && "h-9 w-auto max-h-9 sm:h-auto sm:max-h-11",
-        className
-      )}
-    />
+  const content = (
+    <span className={cn("inline-flex items-center gap-3", className)}>
+      <Image
+        src="/brand/doolenses-mark-mono.png"
+        alt=""
+        width={px}
+        height={px}
+        priority={priority}
+        className="shrink-0 object-contain"
+        aria-hidden
+      />
+      {withWordmark ? (
+        <span
+          className={cn(
+            "font-display font-semibold tracking-tight text-brand-black",
+            size === "sm" && "text-lg",
+            size === "md" && "text-2xl md:text-[1.65rem]",
+            size === "lg" && "text-3xl"
+          )}
+        >
+          {COMPANY.name}
+        </span>
+      ) : null}
+    </span>
   );
 
-  if (href === null) return image;
+  if (href === null) {
+    return (
+      <span role="img" aria-label={`${COMPANY.name} logo`}>
+        {content}
+      </span>
+    );
+  }
 
   return (
-    <Link href={href} className="inline-flex items-center transition hover:opacity-90" aria-label="Doolenses home">
-      {image}
+    <Link
+      href={href}
+      className="inline-flex items-center transition hover:opacity-80"
+      aria-label={`${COMPANY.name} home`}
+    >
+      {content}
     </Link>
   );
 }
