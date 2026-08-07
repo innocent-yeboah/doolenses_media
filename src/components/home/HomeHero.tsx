@@ -3,16 +3,40 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { COMPANY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+/**
+ * Munson-style main slider: full-bleed image slides with centered copy + CTA.
+ * @see https://azim.commonsupport.com/Munson/
+ */
 const SLIDES = [
-  "/hero/slide-01-music-video-set.jpg",
-  "/hero/slide-02-studio-cyclorama.jpg",
-  "/hero/slide-03-pink-set-monitor.jpg",
-  "/hero/slide-05-stadium-crew.jpg",
-  "/hero/slide-06-beetle-crane.jpg",
+  {
+    src: "/hero/slide-01-music-video-set.jpg",
+    alt: "Doolenses filming a music video set with performers and a camera jib",
+    headline: "We craft visuals that are really fresh & unique",
+    cta: { label: "Get Started", href: "/contact" },
+  },
+  {
+    src: "/hero/slide-02-studio-cyclorama.jpg",
+    alt: "Doolenses studio shoot with performers on a cyclorama and camera crane",
+    headline: "Design, photo, video & web — one Accra studio",
+    cta: { label: "Free Consultation", href: "/contact" },
+  },
+  {
+    src: "/hero/slide-03-pink-set-monitor.jpg",
+    alt: "Behind the camera on a stylized pink and green Doolenses production set",
+    headline: "Bold ideas and visuals that truly work",
+    cta: { label: "Start a Project", href: "/contact" },
+  },
+  {
+    src: "/hero/slide-05-stadium-crew.jpg",
+    alt: "Doolenses production crew with equipment trolley at a stadium",
+    headline: "Creative work for creative people",
+    cta: { label: "Explore Our Work", href: "/portfolio" },
+  },
 ] as const;
+
+const INTERVAL_MS = 5500;
 
 export function HomeHero() {
   const [index, setIndex] = useState(0);
@@ -28,48 +52,55 @@ export function HomeHero() {
 
   useEffect(() => {
     if (reducedMotion) return;
-    const id = window.setInterval(() => setIndex((i) => (i + 1) % SLIDES.length), 5500);
+    const id = window.setInterval(() => setIndex((i) => (i + 1) % SLIDES.length), INTERVAL_MS);
     return () => window.clearInterval(id);
   }, [reducedMotion]);
 
+  const active = SLIDES[index];
+
   return (
-    <section className="relative flex min-h-[100svh] items-end overflow-hidden sm:items-center">
-      {SLIDES.map((src, i) => (
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-brand-black">
+      {SLIDES.map((slide, i) => (
         <div
-          key={src}
+          key={slide.src}
           className={cn(
             "absolute inset-0 transition-opacity duration-1000",
             i === index ? "z-[1] opacity-100" : "z-0 opacity-0"
           )}
+          aria-hidden={i !== index}
         >
           <Image
-            src={src}
-            alt=""
+            src={slide.src}
+            alt={slide.alt}
             fill
             priority={i === 0}
             sizes="100vw"
-            className={cn("object-cover", i === index && !reducedMotion && "animate-hero-kenburns")}
+            className={cn(
+              "object-cover grayscale",
+              i === index && !reducedMotion && "animate-hero-kenburns"
+            )}
           />
         </div>
       ))}
-      <div className="absolute inset-0 z-[2] bg-brand-black/55" />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-24 pt-32 sm:pb-28 md:px-8">
-        <div className="max-w-3xl motion-safe:animate-fade-up">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-gold">
-            {COMPANY.subheadline}
-          </p>
-          <h1 className="mt-5 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl">
-            {COMPANY.heroHeadline}
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-white/85 md:text-xl">{COMPANY.tagline}</p>
-          <div className="mt-10">
-            <Button href="/portfolio" size="lg">
-              Explore Our Work
-            </Button>
-          </div>
+      {/* Munson slide-overlay — light tint so type stays readable */}
+      <div className="absolute inset-0 z-[2] bg-brand-black/45" />
+
+      {/* Centered caption — Munson .slider-caption */}
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-6 py-28 text-center md:px-8">
+        <h1
+          key={active.headline}
+          className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-white motion-safe:animate-fade-up sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          {active.headline}
+        </h1>
+        <div className="mt-10 motion-safe:animate-fade-up">
+          <Button href={active.cta.href} size="lg">
+            {active.cta.label}
+          </Button>
         </div>
       </div>
+
     </section>
   );
 }

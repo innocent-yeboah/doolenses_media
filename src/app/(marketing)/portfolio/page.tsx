@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
 import { PortfolioGallery } from "@/components/portfolio/PortfolioGallery";
+import { getPortfolioCategories } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Our Work",
@@ -8,7 +9,15 @@ export const metadata: Metadata = {
   alternates: { canonical: "/portfolio" },
 };
 
-export default function PortfolioPage() {
+type PortfolioPageProps = {
+  searchParams?: { category?: string };
+};
+
+export default function PortfolioPage({ searchParams }: PortfolioPageProps) {
+  const categories = getPortfolioCategories();
+  const requested = searchParams?.category ?? "All";
+  const initialCategory = categories.includes(requested) ? requested : "All";
+
   return (
     <>
       <PageHero
@@ -19,7 +28,7 @@ export default function PortfolioPage() {
       />
       <section className="px-6 py-20 md:px-8 md:py-28">
         <div className="mx-auto max-w-6xl">
-          <PortfolioGallery />
+          <PortfolioGallery initialCategory={initialCategory} />
         </div>
       </section>
     </>

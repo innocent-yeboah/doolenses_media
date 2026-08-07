@@ -6,9 +6,10 @@ import Link from "next/link";
 import { getPortfolioCategories, PORTFOLIO } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
-export function PortfolioGallery() {
+export function PortfolioGallery({ initialCategory = "All" }: { initialCategory?: string }) {
   const categories = getPortfolioCategories();
-  const [active, setActive] = useState("All");
+  const start = categories.includes(initialCategory) ? initialCategory : "All";
+  const [active, setActive] = useState(start);
   const items = useMemo(
     () => (active === "All" ? PORTFOLIO : PORTFOLIO.filter((i) => i.category === active)),
     [active]
