@@ -9,8 +9,10 @@ import { cn } from "@/lib/utils";
 /**
  * Munson-style services: text tabs + featured image/copy panel.
  */
+type ServiceId = (typeof STUDIO_SERVICES)[number]["id"];
+
 export function ServicesPreview() {
-  const [activeId, setActiveId] = useState(STUDIO_SERVICES[0].id);
+  const [activeId, setActiveId] = useState<ServiceId>(STUDIO_SERVICES[0].id);
   const active = STUDIO_SERVICES.find((s) => s.id === activeId) ?? STUDIO_SERVICES[0];
 
   return (

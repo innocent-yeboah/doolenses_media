@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { COMPANY, STUDIO_STATS } from "@/lib/constants";
@@ -20,9 +20,7 @@ const SKILLS = [
  */
 export function AboutPreview() {
   const skillsRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
   const skillsInView = useInView(skillsRef, { once: true, amount: 0.35 });
-  const statsInView = useInView(statsRef, { once: true, amount: 0.4 });
 
   return (
     <section className="relative overflow-hidden bg-brand-soft">
@@ -60,22 +58,22 @@ export function AboutPreview() {
           </div>
         </div>
 
-        <div
-          ref={statsRef}
-          className="mt-20 grid grid-cols-2 gap-y-10 border-t border-brand-line/80 pt-12 sm:grid-cols-4 sm:gap-0"
-        >
+        <div className="mt-20 grid grid-cols-2 border-t border-brand-line/80 sm:grid-cols-4">
           {STUDIO_STATS.map((stat, i) => (
             <div
               key={stat.label}
               className={cn(
-                "text-center sm:px-4",
+                "flex min-h-[7.5rem] flex-col items-center justify-center px-3 py-8 text-center sm:min-h-[8.5rem] sm:px-4",
+                i % 2 === 1 && "border-l border-brand-line/80",
+                i >= 2 && "border-t border-brand-line/80 sm:border-t-0",
                 i > 0 && "sm:border-l sm:border-brand-line/80"
               )}
             >
-              <p className="font-display text-3xl font-bold tracking-tight text-brand-black sm:text-4xl">
-                <CountUp value={stat.numeric} suffix={stat.suffix} active={statsInView} />
+              <p className="font-display text-3xl font-bold tabular-nums tracking-tight text-brand-black sm:text-4xl">
+                {stat.numeric}
+                {stat.suffix}
               </p>
-              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-muted">
+              <p className="mt-2 max-w-[11rem] text-[11px] font-semibold uppercase leading-snug tracking-[0.14em] text-brand-muted">
                 {stat.label}
               </p>
             </div>
@@ -101,11 +99,11 @@ function SkillBar({
     <div>
       <div className="mb-2.5 flex items-baseline justify-between gap-4">
         <span className="text-sm font-medium text-brand-black">{label}</span>
-        <span className="font-display text-sm font-bold text-brand-gold tabular-nums">{value}%</span>
+        <span className="font-display text-sm font-bold tabular-nums text-brand-gold">{value}%</span>
       </div>
       <div className="h-[3px] w-full bg-brand-line/70" role="presentation">
         <div
-          className="h-full bg-brand-gold transition-[width] duration-1000 ease-out"
+          className="h-full bg-brand-gold transition-[width] duration-1000 ease-out motion-reduce:transition-none"
           style={{
             width: active ? `${value}%` : "0%",
             transitionDelay: active ? `${delayMs}ms` : "0ms",
@@ -113,37 +111,5 @@ function SkillBar({
         />
       </div>
     </div>
-  );
-}
-
-function CountUp({ value, suffix, active }: { value: number; suffix: string; active: boolean }) {
-  const [n, setN] = useState(0);
-
-  useEffect(() => {
-    if (!active) {
-      setN(0);
-      return;
-    }
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      setN(value);
-      return;
-    }
-    const start = performance.now();
-    let frame = 0;
-    const tick = (now: number) => {
-      const p = Math.min((now - start) / 1400, 1);
-      setN(Math.round(value * (1 - Math.pow(1 - p, 3))));
-      if (p < 1) frame = requestAnimationFrame(tick);
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [active, value]);
-
-  return (
-    <>
-      {n}
-      {suffix}
-    </>
   );
 }
