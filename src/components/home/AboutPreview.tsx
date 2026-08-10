@@ -44,20 +44,26 @@ export function AboutPreview() {
           </div>
         </div>
 
-        <div className="relative min-h-[22rem] lg:col-span-6 lg:min-h-full">
+        <div className="relative min-h-[24rem] overflow-hidden bg-brand-black lg:col-span-6 lg:min-h-full">
           <Image
-            src="/images/about/about-team.jpg"
-            alt="Doolenses creative team at work"
+            src="/hero/slide-01-music-video-set.jpg"
+            alt="Doolenses production set — creative work in progress"
             fill
             sizes="(max-width:1024px) 100vw, 50vw"
-            className="object-cover"
+            className="object-cover object-center grayscale"
+            priority={false}
           />
+          {/* Soft cinematic veil — keeps type edge clean without burying the frame */}
           <div
-            className="absolute inset-0 bg-gradient-to-r from-brand-black via-brand-black/35 to-transparent lg:from-brand-black/80"
+            className="absolute inset-0 bg-gradient-to-r from-brand-black/70 via-brand-black/20 to-transparent"
             aria-hidden
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-brand-black/50 via-transparent to-transparent lg:hidden"
+            className="absolute inset-0 bg-gradient-to-t from-brand-black/40 via-transparent to-brand-black/10"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/10"
             aria-hidden
           />
         </div>
