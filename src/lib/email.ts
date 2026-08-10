@@ -36,7 +36,7 @@ export async function sendLeadNotification(payload: LeadEmailPayload) {
       subject: `New ${payload.source} lead — ${payload.name}`,
       html: `
         <div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;color:#0A2540">
-          <h2 style="border-bottom:2px solid #D4AF37;padding-bottom:8px">New Lead — Doolenses</h2>
+          <h2 style="border-bottom:2px solid #1D4ED8;padding-bottom:8px">New Lead — Doolenses</h2>
           <p><strong>Source:</strong> ${payload.source}</p>
           <p><strong>Name:</strong> ${payload.name}</p>
           <p><strong>Email:</strong> ${payload.email}</p>
@@ -68,7 +68,7 @@ export async function sendLeadConfirmation(payload: { name: string; email: strin
       subject: "We received your request — Doolenses",
       html: `
         <div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;color:#0A2540">
-          <h2 style="border-bottom:2px solid #D4AF37;padding-bottom:8px">Thank you, ${payload.name}</h2>
+          <h2 style="border-bottom:2px solid #1D4ED8;padding-bottom:8px">Thank you, ${payload.name}</h2>
           <p>Our production team will be in touch within one business day.</p>
           <p>WhatsApp us anytime: <strong>${COMPANY.phone}</strong></p>
           <p style="margin-top:24px">${COMPANY.tagline}</p>

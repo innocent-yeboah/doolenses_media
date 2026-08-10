@@ -10,17 +10,17 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          black: "#1A1A1A",
+          black: "#000000",
           white: "#FFFFFF",
           soft: "#F5F5F5",
-          gold: "#D4AF37",
-          "gold-light": "#E4C65A",
+          gold: "#1D4ED8",
+          "gold-light": "#2563EB",
           muted: "#6B6B6B",
           line: "#E8E8E8",
           /** Aliases for admin + legacy */
           navy: "#0A2540",
-          dark: "#111111",
-          ink: "#1A1A1A",
+          dark: "#000000",
+          ink: "#000000",
           slate: "#6B6B6B",
           surface: "#122C48",
           paper: "#FFFFFF",
