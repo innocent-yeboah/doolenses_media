@@ -16,6 +16,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { getServiceHref } from "@/lib/constants";
 import { SERVICES } from "@/lib/data";
 
 const ICON_MAP: Record<string, LucideIcon> = {
@@ -100,7 +101,7 @@ export function ServicesOverview() {
             </p>
             <div className="mt-8">
               <Button
-                href={`/services#${active.slug}`}
+                href={getServiceHref(active.slug)}
                 variant="outlineDark"
                 className="uppercase tracking-[0.12em]"
               >

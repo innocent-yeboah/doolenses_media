@@ -3,8 +3,7 @@
 import { useRef } from "react";
 import { useInView } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { COMPANY, STUDIO_STATS } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { COMPANY } from "@/lib/constants";
 
 /** Studio strengths shown as Munson-style skill bars. */
 const SKILLS = [
@@ -16,7 +15,7 @@ const SKILLS = [
 
 /**
  * Premium, simple About preview — Munson “who we are” rhythm:
- * story + CTA on the left, skill bars on the right, quiet stats below.
+ * story + CTA on the left, skill bars on the right.
  */
 export function AboutPreview() {
   const skillsRef = useRef<HTMLDivElement>(null);
@@ -56,28 +55,6 @@ export function AboutPreview() {
               />
             ))}
           </div>
-        </div>
-
-        <div className="mt-20 grid grid-cols-2 border-t border-brand-line/80 sm:grid-cols-4">
-          {STUDIO_STATS.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={cn(
-                "flex min-h-[7.5rem] flex-col items-center justify-center px-3 py-8 text-center sm:min-h-[8.5rem] sm:px-4",
-                i % 2 === 1 && "border-l border-brand-line/80",
-                i >= 2 && "border-t border-brand-line/80 sm:border-t-0",
-                i > 0 && "sm:border-l sm:border-brand-line/80"
-              )}
-            >
-              <p className="font-display text-3xl font-bold tabular-nums tracking-tight text-brand-black sm:text-4xl">
-                {stat.numeric}
-                {stat.suffix}
-              </p>
-              <p className="mt-2 max-w-[11rem] text-[11px] font-semibold uppercase leading-snug tracking-[0.14em] text-brand-muted">
-                {stat.label}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

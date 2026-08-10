@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
 import { Button } from "@/components/ui/Button";
-import { STUDIO_SERVICES } from "@/lib/constants";
+import { STUDIO_SERVICES, getServiceHref } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -57,9 +57,12 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button href="/contact" className="mt-8">
-                    Start a Project
-                  </Button>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <Button href={getServiceHref(service.slug)} variant="outlineDark">
+                      View Works
+                    </Button>
+                    <Button href="/contact">Start a Project</Button>
+                  </div>
                 </div>
               </article>
             );

@@ -7,7 +7,7 @@ import { submitContactForm } from "@/actions/leads";
 import { Button } from "@/components/ui/Button";
 import { contactFormSchema, type ContactFormValues } from "@/lib/validations";
 
-export function ContactForm() {
+export function ContactForm({ initialSubject = "" }: { initialSubject?: string }) {
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [pending, startTransition] = useTransition();
   const {
@@ -21,7 +21,7 @@ export function ContactForm() {
       name: "",
       email: "",
       phone: "",
-      subject: "",
+      subject: initialSubject,
       message: "",
       website: "",
     },
@@ -32,7 +32,7 @@ export function ContactForm() {
     startTransition(async () => {
       const result = await submitContactForm(values);
       setMessage({ type: result.success ? "success" : "error", text: result.message });
-      if (result.success) reset();
+      if (result.success) reset({ name: "", email: "", phone: "", subject: "", message: "", website: "" });
     });
   };
 

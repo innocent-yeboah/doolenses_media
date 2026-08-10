@@ -11,7 +11,13 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams?: { subject?: string };
+};
+
+export default function ContactPage({ searchParams }: ContactPageProps) {
+  const initialSubject = searchParams?.subject?.trim() ?? "";
+
   return (
     <>
       <PageHero
@@ -43,9 +49,9 @@ export default function ContactPage() {
                   {COMPANY.phoneDisplay}
                 </a>
               </li>
-              <li className="flex gap-3">
-                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
-                <span>{COMPANY.address}</span>
+              <li className="flex gap-3 text-brand-muted">
+                <MapPin className="h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
+                {COMPANY.address}
               </li>
             </ul>
             <div>
@@ -57,7 +63,7 @@ export default function ContactPage() {
           <div className="border border-brand-line bg-brand-soft/50 p-6 sm:p-8 lg:col-span-3">
             <h2 className="font-display text-2xl font-bold text-brand-black">Send a message</h2>
             <div className="mt-6">
-              <ContactForm />
+              <ContactForm initialSubject={initialSubject} />
             </div>
           </div>
         </div>

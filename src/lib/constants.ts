@@ -36,9 +36,7 @@ export const COMPANY = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/services", label: "Explorer" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
@@ -118,6 +116,293 @@ export const STUDIO_SERVICES = [
     imageUrl: "/hero/slide-02-studio-cyclorama.jpg",
   },
 ] as const;
+
+export type StudioServiceSlug = (typeof STUDIO_SERVICES)[number]["slug"];
+
+type ServiceWork = {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  imageUrl: string;
+};
+
+/** Selected works for each discipline’s dedicated page. */
+export const SERVICE_WORKS: Record<StudioServiceSlug, readonly ServiceWork[]> = {
+  "graphic-design": [
+    {
+      id: "gd1",
+      title: "Brand Identity System",
+      category: "Logo & Brand Guide",
+      description: "Full identity lockup, colour system, and application rules for a growing Accra brand.",
+      imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
+    },
+    {
+      id: "gd2",
+      title: "Campaign Visual Language",
+      category: "Art Direction",
+      description: "Poster and social system built for clear hierarchy and high impact on every screen.",
+      imageUrl: "/about/about-slide-01-idea.jpg",
+    },
+    {
+      id: "gd3",
+      title: "Editorial Lookbook Layout",
+      category: "Print Design",
+      description: "Spread layouts and type pairing for a photographic studio presentation.",
+      imageUrl: "/about/about-slide-02-photographic.jpg",
+    },
+    {
+      id: "gd4",
+      title: "Event Brand Suite",
+      category: "Collateral",
+      description: "Invitation, stage graphics, and programme design for a live production.",
+      imageUrl: "/services/award-ceremonies.jpg",
+    },
+    {
+      id: "gd5",
+      title: "Product Packaging Story",
+      category: "Packaging",
+      description: "Label and carton system that carries the brand from shelf to unboxing.",
+      imageUrl: "/services/educational-programs.jpg",
+    },
+    {
+      id: "gd6",
+      title: "Social Content System",
+      category: "Digital Design",
+      description: "Repeatable templates for campaigns, launches, and studio announcements.",
+      imageUrl: "/hero/slide-01-music-video-set.jpg",
+    },
+  ],
+  photography: [
+    {
+      id: "ph1",
+      title: "Garden Wedding Stills",
+      category: "Wedding Shoot",
+      description: "Soft-light editorial frames for an outdoor Accra wedding day.",
+      imageUrl: "/services/weddings.jpg",
+    },
+    {
+      id: "ph2",
+      title: "Corporate Portrait Session",
+      category: "Corporate Shoot",
+      description: "Clean headshots and environmental portraits for leadership teams.",
+      imageUrl: "/about/about-slide-02-photographic.jpg",
+    },
+    {
+      id: "ph3",
+      title: "Product Catalogue Series",
+      category: "Product Shoot",
+      description: "Consistent lighting and composition for e-commerce and print catalogues.",
+      imageUrl: "/services/educational-programs.jpg",
+    },
+    {
+      id: "ph4",
+      title: "Birthday Celebration Coverage",
+      category: "Birthday Shoot",
+      description: "Candid and posed moments that keep the energy of the room.",
+      imageUrl: "/services/conferences.jpg",
+    },
+    {
+      id: "ph5",
+      title: "Studio Cyclorama Portraits",
+      category: "Studio Shoot",
+      description: "Controlled-light portraiture with a cinematic finish.",
+      imageUrl: "/hero/slide-02-studio-cyclorama.jpg",
+    },
+    {
+      id: "ph6",
+      title: "Event Highlights Gallery",
+      category: "Event Coverage",
+      description: "Key moments from awards and live gatherings, edited for share and press.",
+      imageUrl: "/services/award-ceremonies.jpg",
+    },
+  ],
+  videography: [
+    {
+      id: "vd1",
+      title: "Music Video Production",
+      category: "Music Video",
+      description: "Multi-camera music video with cinematic colour and performance energy.",
+      imageUrl: "/services/musical-concerts.jpg",
+    },
+    {
+      id: "vd2",
+      title: "Live Set Documentation",
+      category: "Live Streaming",
+      description: "Broadcast-ready coverage from set with jib and monitor direction.",
+      imageUrl: "/hero/slide-01-music-video-set.jpg",
+    },
+    {
+      id: "vd3",
+      title: "Documentary Short",
+      category: "Documentary",
+      description: "Story-led documentary film with intimate interviews and location B-roll.",
+      imageUrl: "/services/crusades.jpg",
+    },
+    {
+      id: "vd4",
+      title: "Stadium Crew Film",
+      category: "Commercial",
+      description: "Production film capturing scale, crew craft, and live-event atmosphere.",
+      imageUrl: "/hero/slide-05-stadium-crew.jpg",
+    },
+    {
+      id: "vd5",
+      title: "Pink Set Monitor Cut",
+      category: "Product Film",
+      description: "Stylised set piece with monitor playback and colour-led direction.",
+      imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
+    },
+    {
+      id: "vd6",
+      title: "Jib Operator Feature",
+      category: "Behind the Scenes",
+      description: "Craft-focused feature on camera movement and on-set precision.",
+      imageUrl: "/hero/slide-04-jib-operator.jpg",
+    },
+  ],
+  "web-design": [
+    {
+      id: "wd1",
+      title: "Corporate Web Presence",
+      category: "Corporate",
+      description: "Clean architecture and UI system for a professional Accra business.",
+      imageUrl: "/hero/slide-01-control-booth.jpg",
+    },
+    {
+      id: "wd2",
+      title: "Studio Landing Experience",
+      category: "Marketing Site",
+      description: "Conversion-led homepage with strong brand hierarchy and clear CTAs.",
+      imageUrl: "/about/about-slide-01-idea.jpg",
+    },
+    {
+      id: "wd3",
+      title: "E-commerce Product Flow",
+      category: "E-commerce",
+      description: "Product listing and checkout UX designed for clarity and trust.",
+      imageUrl: "/services/educational-programs.jpg",
+    },
+    {
+      id: "wd4",
+      title: "Event Registration Portal",
+      category: "Web App",
+      description: "Responsive registration experience for conferences and live programmes.",
+      imageUrl: "/services/conferences.jpg",
+    },
+    {
+      id: "wd5",
+      title: "Mobile App Interface Kit",
+      category: "Mobile App",
+      description: "Component-ready mobile screens with accessible contrast and spacing.",
+      imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
+    },
+    {
+      id: "wd6",
+      title: "Campaign Microsite",
+      category: "Campaign Site",
+      description: "Short-form landing page for launches, with motion-ready layout blocks.",
+      imageUrl: "/services/webinars.jpg",
+    },
+  ],
+  printing: [
+    {
+      id: "pr1",
+      title: "Campaign Print Suite",
+      category: "Large Format",
+      description: "Large-format and souvenir print for a live awards production.",
+      imageUrl: "/services/award-ceremonies.jpg",
+    },
+    {
+      id: "pr2",
+      title: "Conference Brand Pack",
+      category: "General Printing",
+      description: "Badges, programmes, and stage print assets for multi-day events.",
+      imageUrl: "/services/conferences.jpg",
+    },
+    {
+      id: "pr3",
+      title: "Merchandise Drop",
+      category: "T-Shirt",
+      description: "Apparel graphics and print finish for a studio merchandise release.",
+      imageUrl: "/services/educational-programs.jpg",
+    },
+    {
+      id: "pr4",
+      title: "Souvenir Collection",
+      category: "Souvenir",
+      description: "Keep-sake print pieces designed for guests and press kits.",
+      imageUrl: "/services/funerals.jpg",
+    },
+    {
+      id: "pr5",
+      title: "Outdoor Banner System",
+      category: "Large Format",
+      description: "Weather-ready banners with strong type and brand colour blocks.",
+      imageUrl: "/hero/slide-05-stadium-crew.jpg",
+    },
+    {
+      id: "pr6",
+      title: "Election Campaign Print",
+      category: "Campaign Print",
+      description: "Poster and flyer set built for street visibility and message clarity.",
+      imageUrl: "/services/election-campaigns.jpg",
+    },
+  ],
+  fashion: [
+    {
+      id: "fs1",
+      title: "Stage Costume Collection",
+      category: "Costume",
+      description: "Wardrobe direction and costume craft for performance and stage.",
+      imageUrl: "/hero/slide-02-studio-cyclorama.jpg",
+    },
+    {
+      id: "fs2",
+      title: "Editorial Dress Series",
+      category: "Female Dress",
+      description: "Silhouette-led dress design for lookbook and runway presentation.",
+      imageUrl: "/about/about-slide-02-photographic.jpg",
+    },
+    {
+      id: "fs3",
+      title: "Menswear Statement Looks",
+      category: "Male Dresses",
+      description: "Tailored stage and street looks with strong fabric and colour contrast.",
+      imageUrl: "/hero/slide-06-beetle-crane.jpg",
+    },
+    {
+      id: "fs4",
+      title: "Accessory Capsule",
+      category: "Bags",
+      description: "Bag and accessory styling to complete the full costume story.",
+      imageUrl: "/services/award-ceremonies.jpg",
+    },
+    {
+      id: "fs5",
+      title: "Footwear Direction",
+      category: "Shoe",
+      description: "Shoe selection and styling that anchors each look on camera.",
+      imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
+    },
+    {
+      id: "fs6",
+      title: "Live Performance Wardrobe",
+      category: "Stage & Street",
+      description: "Full wardrobe package for music and live production talent.",
+      imageUrl: "/services/musical-concerts.jpg",
+    },
+  ],
+};
+
+/** Resolve Explorer / services link to each discipline’s dedicated page. */
+export function getServiceHref(slug: string): string {
+  return `/services/${slug}`;
+}
+
+export function getStudioService(slug: string) {
+  return STUDIO_SERVICES.find((s) => s.slug === slug);
+}
 
 export const STUDIO_PORTFOLIO = [
   {
@@ -283,7 +568,7 @@ export const PRODUCTION_PROCESS = [
 export const HOME_JOURNAL = STUDIO_PORTFOLIO.slice(0, 3).map((p) => ({
   title: p.title,
   date: "Studio",
-  href: "/portfolio",
+  href: "/services",
   imageUrl: p.imageUrl,
 }));
 export const TESTIMONIALS = [
