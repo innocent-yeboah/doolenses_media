@@ -30,21 +30,19 @@ export function Header() {
     };
   }, [open]);
 
-  const linkTone = scrolled
-    ? "text-brand-black/70 hover:text-brand-gold"
-    : "text-white/85 hover:text-brand-gold";
+  const linkTone = "text-white/85 hover:text-brand-gold";
 
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled || open
-          ? "border-b border-brand-line bg-brand-white/95 shadow-sm backdrop-blur-md"
+          ? "border-b border-white/10 bg-brand-black/95 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       )}
     >
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:px-8">
-        <Logo variant={scrolled || open ? "dark" : "light"} size="md" priority />
+        <Logo variant="light" size="md" priority />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => {
@@ -79,7 +77,7 @@ export function Header() {
 
         <button
           type="button"
-          className={cn("inline-flex p-2 lg:hidden", scrolled || open ? "text-brand-black" : "text-white")}
+          className="inline-flex p-2 text-white lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -88,17 +86,17 @@ export function Header() {
         </button>
       </div>
 
-      <div className={cn("border-t border-brand-line bg-brand-white lg:hidden", open ? "block" : "hidden")}>
+      <div className={cn("border-t border-white/10 bg-brand-black lg:hidden", open ? "block" : "hidden")}>
         <nav className="flex flex-col px-6 py-3" aria-label="Mobile">
           {NAV_LINKS.map((link) => {
             if (link.href === "/services") {
               return (
-                <div key={link.href} className="border-b border-brand-line">
+                <div key={link.href} className="border-b border-white/10">
                   <div className="flex items-center justify-between">
                     <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="flex-1 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-brand-black"
+                      className="flex-1 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-white"
                     >
                       {link.label}
                     </Link>
@@ -107,7 +105,7 @@ export function Header() {
                       onClick={() =>
                         setMobileExpand((v) => (v === "services" ? null : "services"))
                       }
-                      className="p-3 text-brand-black"
+                      className="p-3 text-white"
                       aria-expanded={mobileExpand === "services"}
                       aria-label={`${mobileExpand === "services" ? "Collapse" : "Expand"} ${link.label}`}
                     >
@@ -129,7 +127,7 @@ export function Header() {
                               <Link
                                 href={getServiceHref(service.slug)}
                                 onClick={() => setOpen(false)}
-                                className="flex-1 py-2 text-sm font-medium text-brand-black"
+                                className="flex-1 py-2 text-sm font-medium text-white"
                               >
                                 {service.title}
                               </Link>
@@ -138,7 +136,7 @@ export function Header() {
                                 onClick={() =>
                                   setMobileService((v) => (v === service.id ? null : service.id))
                                 }
-                                className="p-2 text-brand-muted"
+                                className="p-2 text-white/60"
                                 aria-expanded={expanded}
                                 aria-label={`${expanded ? "Collapse" : "Expand"} ${service.title}`}
                               >
@@ -148,13 +146,13 @@ export function Header() {
                               </button>
                             </div>
                             {expanded ? (
-                              <ul className="mb-2 space-y-1 border-l border-brand-line pl-3">
+                              <ul className="mb-2 space-y-1 border-l border-white/15 pl-3">
                                 {service.items.map((item) => (
                                   <li key={item}>
                                     <Link
                                       href={`/contact?subject=${encodeURIComponent(item)}`}
                                       onClick={() => setOpen(false)}
-                                      className="block py-1.5 text-sm text-brand-muted transition hover:text-brand-gold"
+                                      className="block py-1.5 text-sm text-white/60 transition hover:text-brand-gold"
                                     >
                                       {item}
                                     </Link>
@@ -176,7 +174,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-brand-line py-4 text-sm font-semibold uppercase tracking-[0.14em] text-brand-black"
+                className="border-b border-white/10 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-white"
               >
                 {link.label}
               </Link>
@@ -237,7 +235,7 @@ function ExplorerDropdown({
           open ? "visible opacity-100" : "invisible pointer-events-none opacity-0"
         )}
       >
-        <ul className="min-w-[15rem] border border-brand-line bg-brand-white py-2 shadow-elevate">
+        <ul className="min-w-[15rem] border border-white/15 bg-brand-black py-2 shadow-elevate">
           {STUDIO_SERVICES.map((service) => {
             const active = flyout === service.id;
             return (
@@ -252,8 +250,8 @@ function ExplorerDropdown({
                   className={cn(
                     "flex items-center justify-between gap-3 px-4 py-2.5 text-xs font-medium uppercase tracking-[0.12em] transition",
                     active
-                      ? "bg-brand-soft text-brand-gold"
-                      : "text-brand-black/75 hover:bg-brand-soft hover:text-brand-gold"
+                      ? "bg-white/5 text-brand-gold"
+                      : "text-white/75 hover:bg-white/5 hover:text-brand-gold"
                   )}
                 >
                   {service.title}
@@ -266,12 +264,12 @@ function ExplorerDropdown({
                     active ? "visible opacity-100" : "invisible pointer-events-none opacity-0"
                   )}
                 >
-                  <ul className="min-w-[13rem] border border-brand-line bg-brand-white py-2 shadow-elevate">
+                  <ul className="min-w-[13rem] border border-white/15 bg-brand-black py-2 shadow-elevate">
                     <li>
                       <Link
                         href={getServiceHref(service.slug)}
                         onClick={onClose}
-                        className="block border-b border-brand-line px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-brand-gold transition hover:bg-brand-soft"
+                        className="block border-b border-white/10 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-brand-gold transition hover:bg-white/5"
                       >
                         View all works
                       </Link>
@@ -281,7 +279,7 @@ function ExplorerDropdown({
                         <Link
                           href={`/contact?subject=${encodeURIComponent(item)}`}
                           onClick={onClose}
-                          className="block px-4 py-2.5 text-xs font-medium uppercase tracking-[0.12em] text-brand-black/75 transition hover:bg-brand-soft hover:text-brand-gold"
+                          className="block px-4 py-2.5 text-xs font-medium uppercase tracking-[0.12em] text-white/75 transition hover:bg-white/5 hover:text-brand-gold"
                         >
                           {item}
                         </Link>

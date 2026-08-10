@@ -46,24 +46,24 @@ export default function ServiceWorksPage({ params }: ServicePageProps) {
         imageAlt={`Doolenses ${service.title} work`}
       />
 
-      <section className="bg-brand-white px-6 py-16 md:px-8 md:py-24">
+      <section className="bg-brand-black px-6 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-6 border-b border-brand-line pb-10 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex flex-col gap-6 border-b border-white/15 pb-10 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-gold">
                 Studio works
               </p>
-              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-brand-black sm:text-4xl">
+              <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 {service.shortDescription}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-brand-muted">{service.description}</p>
+              <p className="mt-4 text-base leading-relaxed text-white/70">{service.description}</p>
             </div>
             <Button href="/contact">Start a Project</Button>
           </div>
 
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
             {service.items.map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-brand-black">
+              <li key={item} className="flex items-center gap-2 text-sm text-white/90">
                 <span className="h-1 w-1 bg-brand-gold" aria-hidden />
                 {item}
               </li>
@@ -73,7 +73,7 @@ export default function ServiceWorksPage({ params }: ServicePageProps) {
           <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {works.map((work) => (
               <article key={work.id} className="group">
-                <div className="relative aspect-[4/5] overflow-hidden bg-brand-soft">
+                <div className="relative aspect-[4/5] overflow-hidden bg-white/5">
                   <Image
                     src={work.imageUrl}
                     alt={work.title}
@@ -85,20 +85,20 @@ export default function ServiceWorksPage({ params }: ServicePageProps) {
                 <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-gold">
                   {work.category}
                 </p>
-                <h3 className="mt-1.5 font-display text-xl font-bold text-brand-black">{work.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-brand-muted">{work.description}</p>
+                <h3 className="mt-1.5 font-display text-xl font-bold text-white">{work.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/65">{work.description}</p>
               </article>
             ))}
           </div>
 
-          <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-brand-line pt-10 sm:flex-row sm:items-center">
+          <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-10 sm:flex-row sm:items-center">
             <Link
               href="/services"
-              className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-muted transition hover:text-brand-gold"
+              className="text-sm font-semibold uppercase tracking-[0.14em] text-white/55 transition hover:text-brand-gold"
             >
               ← All disciplines
             </Link>
-            <Button href="/contact" variant="outlineDark">
+            <Button href="/contact" variant="outline">
               Request a Quote
             </Button>
           </div>

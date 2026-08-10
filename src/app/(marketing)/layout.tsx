@@ -6,7 +6,7 @@ export default function MarketingLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="min-h-screen bg-brand-white text-brand-black">
+    <div className="marketing-site min-h-screen bg-brand-black text-white">
       <Header />
       <main>{children}</main>
       <Footer />

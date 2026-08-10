@@ -22,23 +22,23 @@ export function AboutPreview() {
   const skillsInView = useInView(skillsRef, { once: true, amount: 0.35 });
 
   return (
-    <section className="relative overflow-hidden bg-brand-soft">
+    <section className="relative overflow-hidden bg-brand-black">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(212,175,55,0.08),_transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(212,175,55,0.1),_transparent_55%)]"
         aria-hidden
       />
 
       <div className="relative mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div className="motion-safe:animate-fade-up">
-            <h2 className="font-display text-4xl font-bold tracking-tight text-brand-black sm:text-5xl md:text-6xl">
+            <h2 className="font-display text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
               We Are Doolenses!
             </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-brand-muted md:text-lg">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-white/70 md:text-lg">
               {COMPANY.aboutBlurb} {COMPANY.tagline}.
             </p>
             <div className="mt-10">
-              <Button href="/about" variant="outlineDark">
+              <Button href="/about" variant="outline">
                 About Us
               </Button>
             </div>
@@ -75,10 +75,10 @@ function SkillBar({
   return (
     <div>
       <div className="mb-2.5 flex items-baseline justify-between gap-4">
-        <span className="text-sm font-medium text-brand-black">{label}</span>
+        <span className="text-sm font-medium text-white">{label}</span>
         <span className="font-display text-sm font-bold tabular-nums text-brand-gold">{value}%</span>
       </div>
-      <div className="h-[3px] w-full bg-brand-line/70" role="presentation">
+      <div className="h-[3px] w-full bg-white/15" role="presentation">
         <div
           className="h-full bg-brand-gold transition-[width] duration-1000 ease-out motion-reduce:transition-none"
           style={{

@@ -27,16 +27,16 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
         imageAlt="Doolenses on set"
       />
 
-      <section className="px-6 py-20 md:px-8 md:py-28">
+      <section className="bg-brand-black px-6 py-20 md:px-8 md:py-28">
         <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-5">
           <div className="space-y-8 lg:col-span-2">
             <div>
-              <h2 className="font-display text-2xl font-bold text-brand-black">Get in touch</h2>
-              <p className="mt-3 text-sm leading-relaxed text-brand-muted">
+              <h2 className="font-display text-2xl font-bold text-white">Get in touch</h2>
+              <p className="mt-3 text-sm leading-relaxed text-white/70">
                 Share your project brief — we&apos;ll respond within one business day.
               </p>
             </div>
-            <ul className="space-y-4 text-sm">
+            <ul className="space-y-4 text-sm text-white/85">
               <li>
                 <a href={`mailto:${COMPANY.email}`} className="flex gap-3 hover:text-brand-gold">
                   <Mail className="h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
@@ -49,19 +49,19 @@ export default function ContactPage({ searchParams }: ContactPageProps) {
                   {COMPANY.phoneDisplay}
                 </a>
               </li>
-              <li className="flex gap-3 text-brand-muted">
+              <li className="flex gap-3 text-white/70">
                 <MapPin className="h-5 w-5 shrink-0 text-brand-gold" aria-hidden />
                 {COMPANY.address}
               </li>
             </ul>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted">Follow</p>
-              <SocialLinks className="mt-4" />
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/45">Follow</p>
+              <SocialLinks className="mt-4" tone="dark" />
             </div>
           </div>
 
-          <div className="border border-brand-line bg-brand-soft/50 p-6 sm:p-8 lg:col-span-3">
-            <h2 className="font-display text-2xl font-bold text-brand-black">Send a message</h2>
+          <div className="border border-white/15 bg-white/[0.03] p-6 sm:p-8 lg:col-span-3">
+            <h2 className="font-display text-2xl font-bold text-white">Send a message</h2>
             <div className="mt-6">
               <ContactForm initialSubject={initialSubject} />
             </div>

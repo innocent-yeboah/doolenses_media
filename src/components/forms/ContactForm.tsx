@@ -64,7 +64,7 @@ export function ContactForm({ initialSubject = "" }: { initialSubject?: string }
         <input {...register("website")} tabIndex={-1} autoComplete="off" />
       </div>
       {message ? (
-        <p className={message.type === "success" ? "text-sm text-brand-black" : "text-sm text-red-600"}>
+        <p className={message.type === "success" ? "text-sm text-white" : "text-sm text-red-400"}>
           {message.text}
         </p>
       ) : null}
@@ -86,7 +86,7 @@ function Field({
 }) {
   return (
     <label className="block text-sm">
-      <span className="mb-1.5 block font-medium text-brand-black">{label}</span>
+      <span className="mb-1.5 block font-medium text-white">{label}</span>
       {children}
       {error ? <span className="mt-1 block text-xs text-red-600">{error}</span> : null}
     </label>

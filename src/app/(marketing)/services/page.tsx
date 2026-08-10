@@ -20,7 +20,7 @@ export default function ServicesPage() {
         imageAlt="Doolenses creative studio"
       />
 
-      <section className="px-6 py-20 md:px-8 md:py-28">
+      <section className="bg-brand-black px-6 py-20 md:px-8 md:py-28">
         <div className="mx-auto max-w-6xl space-y-20">
           {STUDIO_SERVICES.map((service, index) => {
             const reversed = index % 2 === 1;
@@ -31,7 +31,7 @@ export default function ServicesPage() {
                 className="scroll-mt-28 grid items-center gap-10 lg:grid-cols-2 lg:gap-14"
               >
                 <div className={reversed ? "lg:order-2" : undefined}>
-                  <div className="relative aspect-[16/11] overflow-hidden bg-brand-soft">
+                  <div className="relative aspect-[16/11] overflow-hidden bg-white/5">
                     <Image
                       src={service.imageUrl}
                       alt={`${service.title} by Doolenses`}
@@ -45,20 +45,20 @@ export default function ServicesPage() {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-gold">
                     {String(index + 1).padStart(2, "0")}
                   </p>
-                  <h2 className="mt-3 font-display text-3xl font-bold text-brand-black md:text-4xl">
+                  <h2 className="mt-3 font-display text-3xl font-bold text-white md:text-4xl">
                     {service.title}
                   </h2>
-                  <p className="mt-4 text-base leading-relaxed text-brand-muted">{service.description}</p>
+                  <p className="mt-4 text-base leading-relaxed text-white/70">{service.description}</p>
                   <ul className="mt-6 space-y-2">
                     {service.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-brand-black">
+                      <li key={item} className="flex items-center gap-2 text-sm text-white/90">
                         <span className="h-1.5 w-1.5 bg-brand-gold" aria-hidden />
                         {item}
                       </li>
                     ))}
                   </ul>
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <Button href={getServiceHref(service.slug)} variant="outlineDark">
+                    <Button href={getServiceHref(service.slug)} variant="outline">
                       View Works
                     </Button>
                     <Button href="/contact">Start a Project</Button>
