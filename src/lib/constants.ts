@@ -36,9 +36,8 @@ export const COMPANY = {
 } as const;
 
 export const NAV_LINKS = [
-  { href: "/services", label: "Explorer" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/services", label: "Explorer" },
 ] as const;
 
 export const STUDIO_STATS = [
