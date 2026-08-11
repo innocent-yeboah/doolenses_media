@@ -2,8 +2,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 const HERO = {
-  src: "/hero/hero-venue-crowd.jpg",
-  alt: "Doolenses live production — camera jib covering a packed venue crowd",
+  src: "/hero/hero-podcast-dual-set.jpg",
+  alt: "Doolenses dual podcast studio with cinema cameras, softboxes, and interview sets",
   headline: "We craft visuals that are really fresh & unique",
   cta: { label: "Get Started", href: "/contact" },
 } as const;
@@ -20,14 +20,14 @@ export function HomeHero() {
           priority
           quality={100}
           sizes="100vw"
-          className="object-cover object-[center_35%] grayscale contrast-[1.12] sm:object-[center_40%]"
+          className="object-cover object-center contrast-[1.05] saturate-[1.04]"
         />
       </div>
 
-      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/35 via-brand-black/18 to-brand-black/58" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/35 via-brand-black/20 to-brand-black/55" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pb-16 pt-28 text-center sm:px-6 sm:py-28 md:px-8">
-        <h1 className="max-w-[18ch] font-display text-[1.85rem] font-bold leading-[1.12] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] motion-safe:animate-fade-up sm:max-w-none sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="max-w-[18ch] font-display text-[1.85rem] font-bold leading-[1.12] tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] motion-safe:animate-fade-up sm:max-w-none sm:text-5xl md:text-6xl lg:text-7xl">
           {HERO.headline}
         </h1>
         <div className="mt-8 w-full max-w-xs motion-safe:animate-fade-up sm:mt-10 sm:max-w-none">
