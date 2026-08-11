@@ -29,9 +29,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
+        /** Montserrat (Gotham alternative) for headlines + body */
+        display: ["var(--font-sans)", "sans-serif"],
         sans: ["var(--font-sans)", "sans-serif"],
-        brand: ["var(--font-brand)", "var(--font-display)", "sans-serif"],
+        brand: ["var(--font-brand)", "var(--font-sans)", "sans-serif"],
       },
       boxShadow: {
         elevate: "0 18px 40px rgba(0,0,0,0.12)",

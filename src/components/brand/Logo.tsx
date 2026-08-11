@@ -46,7 +46,7 @@ export function Logo({
       {withWordmark ? (
         <span
           className={cn(
-            "font-brand uppercase tracking-[0.02em]",
+            "brand-wordmark",
             size === "sm" && "text-lg sm:text-2xl",
             size === "md" && "text-xl sm:text-2xl",
             size === "lg" && "text-3xl",

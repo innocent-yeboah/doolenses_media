@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Montserrat, Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { COMPANY } from "@/lib/constants";
 import "./globals.css";
 
-const display = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["500", "600", "700", "800"],
-});
-
-const sans = Inter({
+/**
+ * Montserrat — free geometric sans closest to Gotham.
+ * Used for all site typography (headlines + body).
+ */
+const gothamAlt = Montserrat({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 /** Brand wordmark — Harabara Mais Demo (André Harabara). */
@@ -87,7 +84,7 @@ const localBusinessJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${brand.variable}`}>
+    <html lang="en" className={`${gothamAlt.variable} ${brand.variable}`}>
       <body className="min-h-screen bg-brand-black font-sans text-white antialiased">
         <script
           type="application/ld+json"

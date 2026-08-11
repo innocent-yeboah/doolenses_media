@@ -31,6 +31,16 @@ body {
   .marketing-site .field-input {
     @apply border-white/20 bg-white/5 text-white placeholder:text-white/40 focus:border-brand-gold focus:ring-brand-gold;
   }
+
+  /** DOOLENSES wordmark — Harabara, lowercase, deep bold */
+  .brand-wordmark {
+    font-family: var(--font-brand), var(--font-sans), sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    -webkit-text-stroke: 0.35px currentColor;
+    text-shadow: 0 0 0.4px currentColor;
+  }
 }
 
 .marketing-site {
