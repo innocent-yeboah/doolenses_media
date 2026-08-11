@@ -47,7 +47,7 @@ export default function AdminLoginForm() {
       <div className="w-full max-w-md border border-white/10 bg-brand-surface/40 p-8 shadow-elevate backdrop-blur">
         <div className="mb-8 flex flex-col items-center text-center">
           <Image
-            src="/brand/doolenses-logo-white.png"
+            src="/brand/doolenses-mark-new.png"
             alt="Doolenses"
             width={200}
             height={60}

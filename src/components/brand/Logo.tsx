@@ -35,7 +35,7 @@ export function Logo({
   const content = (
     <span className="inline-flex items-center gap-0.5">
       <Image
-        src="/brand/doolenses-mark-mono.png"
+        src="/brand/doolenses-mark-new.png"
         alt=""
         width={px}
         height={px}

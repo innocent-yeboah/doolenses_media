@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: COMPANY.legalName,
     title: `${COMPANY.name} | ${COMPANY.subheadline}`,
     description: COMPANY.tagline,
-    images: [{ url: "/brand/doolenses-mark-mono.png", alt: "Doolenses logo" }],
+    images: [{ url: "/brand/doolenses-mark-new.png", alt: "Doolenses logo" }],
   },
   robots: { index: true, follow: true },
 };
