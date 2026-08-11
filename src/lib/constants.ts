@@ -57,7 +57,7 @@ export const STUDIO_SERVICES = [
       "From logos to full brand guides, we craft design that carries your story across every surface.",
     items: ["Logo Design", "Brand Guide", "General Design"],
     icon: "Palette",
-    imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
+    imageUrl: "/services/graphic-design-hero.jpg",
   },
   {
     id: "photography",
@@ -134,7 +134,7 @@ export const SERVICE_WORKS: Record<StudioServiceSlug, readonly ServiceWork[]> = 
       title: "Brand Identity System",
       category: "Logo & Brand Guide",
       description: "Full identity lockup, colour system, and application rules for a growing Accra brand.",
-      imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
+      imageUrl: "/services/graphic-design-poster.jpg",
     },
     {
       id: "gd2",
@@ -409,7 +409,7 @@ export const STUDIO_PORTFOLIO = [
     title: "Brand Identity System",
     category: "Graphic Design",
     description: "Logo, guide, and applications for a growing Accra brand.",
-    imageUrl: "/hero/slide-03-pink-set-monitor.jpg",
+    imageUrl: "/services/graphic-design-poster.jpg",
     featured: true,
   },
   {
