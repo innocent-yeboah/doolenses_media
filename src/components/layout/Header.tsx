@@ -41,8 +41,8 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6 md:px-8">
-        <Logo variant="light" size="sm" className="sm:[&_img]:h-11 sm:[&_img]:w-11" priority />
+      <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center justify-between px-4 sm:h-24 sm:px-6 md:px-8">
+        <Logo variant="light" size="sm" priority />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => {
@@ -88,7 +88,7 @@ export function Header() {
 
       <div
         className={cn(
-          "max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-white/10 bg-brand-black sm:max-h-[calc(100dvh-5rem)] lg:hidden",
+          "max-h-[calc(100dvh-4.75rem)] overflow-y-auto border-t border-white/10 bg-brand-black sm:max-h-[calc(100dvh-6rem)] lg:hidden",
           open ? "block" : "hidden"
         )}
       >

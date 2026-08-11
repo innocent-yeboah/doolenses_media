@@ -14,9 +14,9 @@ type LogoProps = {
 };
 
 const MARK = {
-  sm: 36,
-  md: 44,
-  lg: 56,
+  sm: 64,
+  md: 77,
+  lg: 97,
 } as const;
 
 /**
@@ -47,9 +47,9 @@ export function Logo({
         <span
           className={cn(
             "brand-wordmark leading-none",
-            size === "sm" && "text-3xl sm:text-4xl",
-            size === "md" && "text-4xl sm:text-[2.75rem]",
-            size === "lg" && "text-5xl",
+            size === "sm" && "text-2xl sm:text-3xl",
+            size === "md" && "text-3xl sm:text-4xl",
+            size === "lg" && "text-4xl",
             variant === "light" ? "text-white" : "text-brand-ink"
           )}
         >
