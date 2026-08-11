@@ -33,7 +33,7 @@ export function Logo({
   const px = MARK[size];
 
   const content = (
-    <span className="inline-flex items-center gap-3">
+    <span className="inline-flex items-center gap-0.5">
       <Image
         src="/brand/doolenses-mark-mono.png"
         alt=""
@@ -46,10 +46,10 @@ export function Logo({
       {withWordmark ? (
         <span
           className={cn(
-            "brand-wordmark",
-            size === "sm" && "text-lg sm:text-2xl",
-            size === "md" && "text-xl sm:text-2xl",
-            size === "lg" && "text-3xl",
+            "brand-wordmark leading-none",
+            size === "sm" && "text-3xl sm:text-4xl",
+            size === "md" && "text-4xl sm:text-[2.75rem]",
+            size === "lg" && "text-5xl",
             variant === "light" ? "text-white" : "text-brand-ink"
           )}
         >
