@@ -68,7 +68,7 @@ export function ContactForm({ initialSubject = "" }: { initialSubject?: string }
           {message.text}
         </p>
       ) : null}
-      <Button type="submit" disabled={pending} size="lg">
+      <Button type="submit" disabled={pending} size="lg" className="w-full sm:w-auto">
         {pending ? "Sending…" : "Send Message"}
       </Button>
     </form>

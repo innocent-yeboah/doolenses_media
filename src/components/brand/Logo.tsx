@@ -33,7 +33,7 @@ export function Logo({
   const px = MARK[size];
 
   const content = (
-    <span className={cn("inline-flex items-center gap-3", className)}>
+    <span className="inline-flex items-center gap-3">
       <Image
         src="/brand/doolenses-mark-mono.png"
         alt=""
@@ -47,7 +47,7 @@ export function Logo({
         <span
           className={cn(
             "font-display font-bold uppercase tracking-[0.04em]",
-            size === "sm" && "text-base",
+            size === "sm" && "text-base sm:text-xl",
             size === "md" && "text-lg sm:text-xl",
             size === "lg" && "text-2xl",
             variant === "light" ? "text-white" : "text-brand-ink"
@@ -61,7 +61,7 @@ export function Logo({
 
   if (href === null) {
     return (
-      <span role="img" aria-label={`${COMPANY.name} logo`}>
+      <span role="img" aria-label={`${COMPANY.name} logo`} className={className}>
         {content}
       </span>
     );
@@ -70,7 +70,7 @@ export function Logo({
   return (
     <Link
       href={href}
-      className="inline-flex items-center transition hover:opacity-90"
+      className={cn("inline-flex items-center transition hover:opacity-90", className)}
       aria-label={`${COMPANY.name} home`}
     >
       {content}

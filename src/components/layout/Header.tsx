@@ -41,8 +41,8 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:px-8">
-        <Logo variant="light" size="md" priority />
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6 md:px-8">
+        <Logo variant="light" size="sm" className="sm:[&_img]:h-11 sm:[&_img]:w-11" priority />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           {NAV_LINKS.map((link) => {
@@ -86,8 +86,13 @@ export function Header() {
         </button>
       </div>
 
-      <div className={cn("border-t border-white/10 bg-brand-black lg:hidden", open ? "block" : "hidden")}>
-        <nav className="flex flex-col px-6 py-3" aria-label="Mobile">
+      <div
+        className={cn(
+          "max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-white/10 bg-brand-black sm:max-h-[calc(100dvh-5rem)] lg:hidden",
+          open ? "block" : "hidden"
+        )}
+      >
+        <nav className="flex flex-col px-4 py-3 sm:px-6" aria-label="Mobile">
           {NAV_LINKS.map((link) => {
             if (link.href === "/services") {
               return (

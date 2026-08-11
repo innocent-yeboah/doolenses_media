@@ -33,7 +33,9 @@ body {
   }
 }
 
-/* Professional blue accent — ensures brand-gold utilities render as blue */
+.marketing-site {
+  overflow-x: clip;
+}
 .text-brand-gold,
 .hover\:text-brand-gold:hover {
   color: #1d4ed8 !important;

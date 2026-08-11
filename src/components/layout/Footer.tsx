@@ -9,7 +9,7 @@ export function Footer() {
 
   return (
     <footer className="bg-brand-black text-brand-white">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 md:px-8 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:gap-12 sm:px-6 sm:py-16 md:grid-cols-2 md:px-8 lg:grid-cols-4">
         <div className="lg:col-span-1">
           <Logo variant="light" size="sm" />
           <p className="mt-5 text-sm leading-relaxed text-white/60">{COMPANY.tagline}</p>
@@ -59,7 +59,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between md:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between sm:px-6 md:px-8">
           <p>
             © {year} {COMPANY.legalName}. Accra, Ghana.
           </p>
