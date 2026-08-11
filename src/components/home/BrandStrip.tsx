@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const STRIP = [
-  { src: "/brand/doolenses-lockup.png", alt: "Doolenses mark" },
+  { src: "/brand/doolenses-lockup-v2.png", alt: "Doolenses mark" },
   { src: "/services/weddings.jpg", alt: "Weddings production" },
   { src: "/services/conferences.jpg", alt: "Conference production" },
   { src: "/services/musical-concerts.jpg", alt: "Concert production" },

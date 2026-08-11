@@ -13,11 +13,11 @@ type LogoProps = {
   priority?: boolean;
 };
 
-/** Full brand lockup (mark + doolenses) intrinsic ratio ≈ 811×149 */
+/** Full brand lockup (mark + doolenses) intrinsic ratio ≈ 794×153 */
 const LOCKUP = {
-  sm: { width: 200, height: 37 },
-  md: { width: 240, height: 44 },
-  lg: { width: 300, height: 55 },
+  sm: { width: 210, height: 40 },
+  md: { width: 250, height: 48 },
+  lg: { width: 310, height: 60 },
 } as const;
 
 const MARK_ONLY = {
@@ -39,15 +39,15 @@ export function Logo({
 }: LogoProps) {
   const content = withWordmark ? (
     <Image
-      src="/brand/doolenses-lockup.png"
+      src="/brand/doolenses-lockup-v2.png"
       alt=""
       width={LOCKUP[size].width}
       height={LOCKUP[size].height}
       priority={priority}
       className={cn(
-        "h-auto w-auto max-h-[2.35rem] object-contain object-left sm:max-h-[2.75rem]",
-        size === "md" && "max-h-[2.75rem] sm:max-h-[3.25rem]",
-        size === "lg" && "max-h-[3.5rem]",
+        "h-auto w-auto max-h-[2.5rem] object-contain object-left sm:max-h-[2.9rem]",
+        size === "md" && "max-h-[2.9rem] sm:max-h-[3.4rem]",
+        size === "lg" && "max-h-[3.75rem]",
         variant === "dark" && "invert"
       )}
       aria-hidden
