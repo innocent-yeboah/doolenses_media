@@ -20,7 +20,7 @@ const MARK = {
 } as const;
 
 /**
- * Munson header logo: mono mark + Doolenses wordmark.
+ * Doolenses logo: mono mark + Harabara Mais Demo wordmark.
  */
 export function Logo({
   variant = "dark",
@@ -46,10 +46,10 @@ export function Logo({
       {withWordmark ? (
         <span
           className={cn(
-            "font-display font-bold uppercase tracking-[0.04em]",
-            size === "sm" && "text-base sm:text-xl",
-            size === "md" && "text-lg sm:text-xl",
-            size === "lg" && "text-2xl",
+            "font-brand uppercase tracking-[0.02em]",
+            size === "sm" && "text-lg sm:text-2xl",
+            size === "md" && "text-xl sm:text-2xl",
+            size === "lg" && "text-3xl",
             variant === "light" ? "text-white" : "text-brand-ink"
           )}
         >

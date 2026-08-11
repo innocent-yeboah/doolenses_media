@@ -31,6 +31,7 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
         sans: ["var(--font-sans)", "sans-serif"],
+        brand: ["var(--font-brand)", "var(--font-display)", "sans-serif"],
       },
       boxShadow: {
         elevate: "0 18px 40px rgba(0,0,0,0.12)",

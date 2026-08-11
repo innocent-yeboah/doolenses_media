@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Montserrat, Inter } from "next/font/google";
 import { COMPANY } from "@/lib/constants";
 import "./globals.css";
@@ -15,6 +16,14 @@ const sans = Inter({
   variable: "--font-sans",
   display: "swap",
   weight: ["300", "400", "500", "600"],
+});
+
+/** Brand wordmark — Harabara Mais Demo (André Harabara). */
+const brand = localFont({
+  src: "../fonts/HarabaraMaisDemo.otf",
+  variable: "--font-brand",
+  display: "swap",
+  weight: "700",
 });
 
 export const metadata: Metadata = {
@@ -78,7 +87,7 @@ const localBusinessJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${brand.variable}`}>
       <body className="min-h-screen bg-brand-black font-sans text-white antialiased">
         <script
           type="application/ld+json"
