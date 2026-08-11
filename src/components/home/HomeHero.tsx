@@ -2,8 +2,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 const HERO = {
-  src: "/hero/hero-studio-mic.jpg",
-  alt: "Doolenses studio — condenser microphone, headphones, and cinematic lighting",
+  src: "/hero/hero-studio-cyclorama.jpg",
+  alt: "Doolenses photography studio — cyclorama cove, lighting, and production equipment",
   headline: "We craft visuals that are really fresh & unique",
   cta: { label: "Get Started", href: "/contact" },
 } as const;
@@ -20,11 +20,11 @@ export function HomeHero() {
           priority
           quality={100}
           sizes="100vw"
-          className="object-cover object-[center_40%] contrast-[1.05] saturate-[1.05] sm:object-center"
+          className="object-cover object-[center_45%] contrast-[1.1] sm:object-center"
         />
       </div>
 
-      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/40 via-brand-black/25 to-brand-black/60" />
+      <div className="absolute inset-0 z-[2] bg-gradient-to-b from-brand-black/30 via-brand-black/15 to-brand-black/50" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 pb-16 pt-28 text-center sm:px-6 sm:py-28 md:px-8">
         <h1 className="max-w-[18ch] font-display text-[1.85rem] font-bold leading-[1.12] tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] motion-safe:animate-fade-up sm:max-w-none sm:text-5xl md:text-6xl lg:text-7xl">
