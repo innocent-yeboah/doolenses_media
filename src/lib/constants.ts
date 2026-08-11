@@ -1,7 +1,7 @@
 export const COMPANY = {
   name: "Doolenses",
   legalName: "Doolenses",
-  tagline: "We craft bold ideas and visuals that truly work",
+  tagline: "Creative work for creative peoples",
   subheadline: "Creative Studio",
   agencyLine:
     "Creative studio for graphic design, photography, videography, web design, printing, and fashion",

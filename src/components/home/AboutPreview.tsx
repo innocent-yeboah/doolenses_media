@@ -17,7 +17,7 @@ export function AboutPreview() {
           </p>
 
           <h2 className="mt-5 font-display text-3xl font-semibold tracking-[-0.02em] text-white sm:mt-6 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.08]">
-            We are <span className="brand-wordmark">Doolenses</span>
+            We are <span className="font-sans text-[1.05em] font-extrabold lowercase tracking-tight">doolenses</span>
           </h2>
 
           <span className="mt-6 h-px w-14 bg-brand-gold sm:mt-7" aria-hidden />

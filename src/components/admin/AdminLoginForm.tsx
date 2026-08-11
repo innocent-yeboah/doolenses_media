@@ -47,11 +47,11 @@ export default function AdminLoginForm() {
       <div className="w-full max-w-md border border-white/10 bg-brand-surface/40 p-8 shadow-elevate backdrop-blur">
         <div className="mb-8 flex flex-col items-center text-center">
           <Image
-            src="/brand/doolenses-mark-new.png"
+            src="/brand/doolenses-lockup.png"
             alt="Doolenses"
-            width={200}
-            height={60}
-            className="h-12 w-auto object-contain"
+            width={220}
+            height={40}
+            className="h-10 w-auto object-contain"
             priority
           />
           <h1 className="mt-6 font-display text-2xl font-bold text-white">Operations Console</h1>
