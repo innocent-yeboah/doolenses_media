@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { NAV_LINKS, STUDIO_SERVICES, getServiceHref } from "@/lib/constants";
@@ -10,11 +11,13 @@ import { cn } from "@/lib/utils";
 type DropdownKey = "services" | null;
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoverMenu, setHoverMenu] = useState<DropdownKey>(null);
   const [mobileExpand, setMobileExpand] = useState<DropdownKey>(null);
   const [mobileService, setMobileService] = useState<string | null>(null);
+  const solidNav = scrolled || open || pathname === "/services/graphic-design";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -36,7 +39,7 @@ export function Header() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || open
+        solidNav
           ? "border-b border-white/10 bg-brand-black/95 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       )}
